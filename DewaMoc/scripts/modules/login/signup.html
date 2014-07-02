@@ -1,0 +1,22 @@
+<div id="signup-view"
+     data-role="view"
+     data-layout="default"
+     data-transition="overlay:up"
+     data-model="app.loginService.signUpViewModel">
+    
+    <div data-role="header">
+        <div data-role="navbar">
+             <a data-role="button" href="scripts/modules/login/signin.html">Sign In</a>
+		</div>
+	</div>
+    
+    <form data-bind="events: { keyup: checkEnter }">
+		<input type="text" data-bind="value: fullname" placeholder="Full Name"/>
+		<input type="email" data-bind="value: email" placeholder="Email"/>
+		<input type="text" data-bind="value: username" placeholder="Username"/>
+		<input type="password" data-bind="value: password" placeholder="Password"/>
+		<input type="password" data-bind="value: repassword" placeholder="Retype Password"/>
+        <input data-role="button" type="submit" data-bind="click: onSignUp" value="Sign Up"/>
+		<p>By tapping "Sign Up" above, you are agreeing to the <a>Terms of Service</a> and <a>Privacy Policy</a>.</p>
+	</form> 
+</div>
