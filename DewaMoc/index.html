@@ -15,18 +15,7 @@
         <script src="scripts/common.js"></script>
         <script src="scripts/modules/login/identity-providers.js"></script>
         <script src="scripts/modules/login/login.js"></script>
-        <script src="scripts/modules/main/main.js"></script>
-        <script src="scripts/modules/leafs/leafs.js"></script>
-        <script src="scripts/modules/leafs/leaf-analyse.js"></script>
-        <script src="scripts/modules/leafs/leaf-analyze-validation.js"></script>
-        <script src="scripts/modules/leafs/leaf-details.js"></script>
-        <script src="scripts/modules/plants/plants.js"></script>
-        <script src="scripts/modules/plants/plant-details.js"></script>
-		<script src="scripts/modules/diseases/diseases.js"></script>
-        <script src="scripts/modules/diseases/disease-details.js"></script>
-        <script src="scripts/modules/profile/profile.js"></script>
-        <script src="scripts/modules/profile/around-me.js"></script>
-        <script src="scripts/modules/leaders-board/leaders-board.js"></script>
+        <script src="scripts/modules/dashboard/dashboard.js"></script>
         <script src="scripts/modules/location/location.js"></script>
         
         <script src="scripts/app.js"></script>
@@ -63,18 +52,19 @@
 
         <!--Drawer-->
         <div id="drawer" data-role="drawer" data-model="app.loginService.signInViewModel"
-             data-views='["main-view","leafs-view","leaf-details-view","diseases-view","disease-details-view","plants-view","plant-details-view","location-view", "profil-view","around-me-view","leaders-board-view"]'>
+             data-views='["dashboard-view"]'>
              <header data-role="header">
                 <div data-role="navbar">
                     <div data-bind="text: displayName"></div>
                 </div>
              </header>
              <ul data-role="listview">
-                <li><a href="scripts/modules/main/main.html">Payment</a></li>
-                <li><a href="scripts/modules/main/main.html">Map</a></li>
+                <li><a href="scripts/modules/dashboard/dashboard.html">Dashboard</a></li>
+                <li><a href="scripts/modules/payment/payment.html">Payment</a></li>
+                <li><a href="scripts/modules/locations/locations.html">Map</a></li>
                 
                 <li><a href="scripts/modules/profile/profile.html">Profile</a></li>
-                <li><a data-bind="click: logout"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+                <li><a data-bind="click: logout"></i>Sign Out</a></li>
             </ul>
         </div>
     </body>
