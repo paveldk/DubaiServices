@@ -1,0 +1,33 @@
+<div id="bills-view"
+     data-role="view"
+	 data-init="app.billsService.initModule"
+	 data-model="app.billsService.viewModel"
+     data-layout="drawer-layout">
+    
+	<div data-role="header">
+        <div data-role="navbar">
+            
+		</div>
+	</div>
+    
+    <ul data-role="listview"
+        data-bind="source: billsDataSource"
+		data-template="bills-template">       
+    </ul>
+    
+    <a>Pay all <span data-bind="text: totalCost"></span></a>
+
+    <div data-role="footer">
+        <div data-role="navbar">
+            
+		</div>
+	</div>
+    
+    <script id="bills-template" type="text/x-kendo-tmpl">
+    	<a class="#: icon #" href="scripts/modules/bills/bill-details.html?dataId=#: id #">
+            <span>#: title #</span>
+            <span>#: date #</span>
+            <span>#: cost #</span>
+    	</a>
+    </script>
+</div>
