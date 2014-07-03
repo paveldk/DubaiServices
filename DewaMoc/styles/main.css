@@ -95,6 +95,10 @@
     padding-top: 0;
 }
 
+.km-ios7 .km-listview-link:after {
+    display: none;
+}
+
 .km-ios7.km-pane .km-content h1 {
     text-align: center;
     font-weight: normal;
@@ -125,10 +129,6 @@
 }
 
 .km-ios7 .km-view .km-content a {
-    text-decoration: underline;
-}
-
-.km-ios7 .km-view .km-content a.bs-no-underline {
     text-decoration: none;
 }
 
@@ -161,11 +161,12 @@
 
 .km-ios7 .km-view .km-button.ds-button,
 .km-ios7 .km-view .km-content input.ds-input {
-    -webkit-border-radius: .25em;
-    border-radius: .25em;
+    -webkit-border-radius: .2em;
+    border-radius: .2em;
 }
 
-.km-ios7 .km-view .km-button.ds-button {
+.km-ios7 .km-view .km-button.ds-button,
+.km-ios7 .km-view input.km-button.ds-button {
     margin: 0 0 .3em;
     padding: .6em .8em;
     border: 0 none;
@@ -173,7 +174,9 @@
     background-color: #329363;
     color: #fff;
     text-decoration: none;
+    font-weight: normal;
     font-size: 1.35em;
+    font-family: "HelveticaNeue Ultra Light", "Roboto Light", "Slate Light", "Segoe WP", NokiaPureTextLight, sans-serif;
 }
 
 .km-ios7 .km-view .km-button.ds-button.km-state-hover {
@@ -200,6 +203,23 @@
     background-color: transparent;
 }
 
+.km-ios7 .km-view .km-footer .km-button.ds-button {
+    margin-bottom: 0;
+    font-size: 1.15em;
+}
+
+.km-ios7 .km-view .km-footer a.km-button.ds-button {
+    padding: .1em .8em;
+}
+
+.km-ios7 .km-view .km-footer .km-button.ds-button .ds-title {
+    float: left;
+}
+
+.km-ios7 .km-view .km-footer .km-button.ds-button .ds-cost {
+    float: right;
+}
+
 .km-ios7 .km-view .km-content input.ds-input {
     display: block;
     -webkit-box-sizing: border-box;
@@ -208,7 +228,7 @@
     padding: .6em .8em .5em;
     width: 100%;
     border: 2px solid transparent;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .5);
     -webkit-background-clip: border-box;
     background-clip: border-box;
     color: #fff;
@@ -263,6 +283,14 @@
     font-size: 1.35em;
 }
 
+/* footer styles */
+.km-ios7 .km-view .km-footer {
+    height: 6.35em;
+}
+.km-ios7 .km-view .km-footer .km-view-title {
+    padding: .65em .65em 0;
+}
+
 /* form styles */
 .ds-form {
     margin: 1em .65em;
@@ -290,15 +318,180 @@
 @media all and (max-height: 480px) {
     
     .signin-view .ds-form {
-        margin-top: 8em;
-    }
-    
-    .km-ios7 .km-view.signin-view .km-content .bs-center-text {
-        margin-top: 1.5em;
+        margin-top: 10em;
     }
 }
 
 /* sign up view styles */
 .signup-view {
     
+}
+
+/* dashboard view styles */
+.dashboard-view .dashboard-items {
+    margin: 0 -1px;
+    padding: 0;
+}
+
+.dashboard-view .dashboard-items > li {
+    float: left;
+    margin: .35% .25%;
+    padding: 0;
+    width: 49.5%;
+    color: #fff;
+    list-style-type: none;
+}
+
+.dashboard-view .dashboard-items > li > a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    height: 160px;
+    border: 0 none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, .3);
+    text-align: center;
+}
+
+.dashboard-view .dashboard-items .ds-icon,
+.dashboard-view .dashboard-items .ds-title {
+    position: absolute;
+    right: .5em;
+    left: .5em;
+}
+
+.dashboard-view .dashboard-items .ds-icon {
+    top: 50%;
+    left: 50%;
+    margin: -3.5em 0 0 -3em;
+    width: 6em;
+    height: 5em;
+}
+
+.dashboard-view .dashboard-items .ds-badge {
+    position: absolute;
+    top: .55em;
+    right: 0;
+    min-width: 1.35em;
+    height: 1.35em;
+    -webkit-border-radius: .675em;
+    border-radius: .675em;
+    background-color: #f44336;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25em;
+    line-height: 1.4em;
+}
+
+.dashboard-view .dashboard-items .ds-badge span {
+    padding: 0 .35em;
+}
+
+.dashboard-view .dashboard-items .ds-title {
+    bottom: .65em;
+    font-size: 1.25em;
+}
+
+.dashboard-view .dashboard-items .ds-title {
+    bottom: .65em;
+    font-size: 1.25em;
+}
+
+.dashboard-view .dashboard-items .ds-icon:before {
+    left: 50%;
+    margin-top: -.6em;
+    margin-left: -.75em;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 3.75em;
+    line-height: 1.5em;
+    opacity: 1;
+}
+
+.dashboard-view .dashboard-items .ds-icon.ds-icon-bills:before {
+    content: "\f09d";
+}
+
+.dashboard-view .dashboard-items .ds-icon.ds-icon-notifications:before {
+    content: "\f003";
+    line-height: 1.45em;
+}
+
+.dashboard-view .dashboard-items .ds-icon.ds-icon-centers:before {
+    margin-top: -.85em;
+    content: "\f041";
+}
+
+/* bills view styles */
+.bills-view .bills-items > li {
+    margin-bottom: .05em;
+    padding: 0;
+    border-width: 0;
+    border-image: none;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.bills-view .bills-items > li:last-child {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.bills-view .bills-items > li > a.km-listview-link {
+    margin: 0;
+    padding: .5em;
+}
+
+.bills-view .ds-icon {
+    display: block;
+    width: 2.25em;
+    height: 2.25em;
+    border-width: 2px;
+    border-style: solid;
+    -webkit-border-radius: 1.125em;
+    border-radius: 1.125em;
+    text-align: center;
+    
+}
+
+.bills-view .ds-icon .fa {
+    font-size: 1.25em;
+    margin-top: .35em;
+}
+
+/* Electricity icon wrapper */
+.ds-icon.ds-icon-fa-bolt {
+    border-color: #ffb84d;
+    color: #ffb84d;
+}
+
+/* Cooling Chanrges icon wrapper */
+.ds-icon.ds-icon-fa-spinner {
+    border-color: #2bbeff;
+    color: #2bbeff;
+}
+
+/* Housing Fee icon wrapper */
+.ds-icon.ds-icon-fa-home {
+    border-color: #7db542;
+    color: #7db542;
+}
+
+/* Sewerage Fee icon wrapper */
+.ds-icon.ds-icon-fa-recycle {
+    border-color: #7987cc;
+    color: #7987cc;
+}
+
+/* Water icon wrapper */
+.ds-icon.ds-icon-fa-tint {
+    border-color: #81d4fa;
+    color: #81d4fa;
+}
+
+/* Other Charges icon wrapper */
+.ds-icon.ds-icon-fa-ellipsis-h {
+    border-color: #51c2b7;
+    color: #51c2b7;
 }

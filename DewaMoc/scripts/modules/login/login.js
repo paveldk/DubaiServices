@@ -169,7 +169,7 @@
             .then(function(data) {
                 that.set("displayName", data.result.DisplayName);
                 app.currentUser = data.result;
-                app.common.navigateToView(app.config.views.main);
+                app.common.navigateToView(app.config.views.dashboard);
             });
         },
     });
@@ -236,7 +236,7 @@
             app.everlive.Users.getById( data.result.Id)
             .then(function(data) {
                 app.currentUser = data.result;
-                app.common.navigateToView(app.config.views.main);
+                app.common.navigateToView(app.config.views.dashboard);
             });			
         },
     });
