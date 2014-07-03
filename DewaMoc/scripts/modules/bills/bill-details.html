@@ -14,6 +14,11 @@
     
 	<div data-template="bill-details-template" data-bind="source: this"></div>
 
+    <div data-role="chart"
+         data-series-defaults="{type: 'line', missingValues: 'gap', stack: 'true', field: 'value', categoryField: 'date' }"
+         data-value-axis="{max: 1000, line: { visible: false }}">
+    </div>
+    
     <div data-role="footer">
         <div data-role="navbar">
             
