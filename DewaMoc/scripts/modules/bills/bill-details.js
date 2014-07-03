@@ -23,9 +23,14 @@
 
 	BillDetailsService = kendo.Class.extend({
 		viewModel: null,
+        months_en: ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         
         expandExp: {
-            "History": true,
+            "History": {
+                "Sort": {
+                    "EndDate": 1
+                }
+            },
             "Type": true,
         },
 
@@ -107,13 +112,43 @@
         
         buildPeriodChartDS: function(history) {
             var that = this,
+                $chart,
                 ds = [];
             
             for(var i = 0, l = history.length; i < l; i++) {
-                ds.push({value: parseInt(history[i].Consumption, 10), date: history[i].EndDate });
+                ds.push({value: parseInt(history[i].Consumption, 10), date: that.months_en[history[i].EndDate.getMonth()] });
             }
             
             that.viewModel.get("periodChartDS").data(ds);
+            
+            $chart = $("#chart").empty();
+            
+            $chart.kendoChart({
+                dataSource: {
+                    data: ds
+                },
+                seriesDefaults: {
+                    type: "line"
+                },
+                series: [{
+                    field: "value",
+                    aggregate: "avg",
+                    categoryField: "date"
+                }],
+                categoryAxis: {
+                    baseUnits: "months",
+                    majorGridLines: {
+                        visible: false
+                    },
+                    majorTicks: {
+                        visible: false,
+                    }
+                }
+            });
+        },
+        
+        getMonth: function() {
+            
         },
 
 		onError: function (e) {
