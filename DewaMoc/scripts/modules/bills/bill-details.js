@@ -6,6 +6,7 @@
 	BillDetailsViewModel = kendo.data.ObservableObject.extend({
         title: "",
         icon: "",
+        color: "",
         consumption: "",
         account: "",
         period: "",
@@ -64,6 +65,7 @@
 
             that.viewModel.set("title", billData.Title);
             that.viewModel.set("icon", billData.Type.Icon);
+            that.viewModel.set("color", billData.Type.Color);
 			that.viewModel.set("consumption", that.calculateTotalConsumption(billData.History));
             that.viewModel.set("account", billData.Account);
             that.viewModel.set("totalCost", that.calculateTotalCost(billData.History));
@@ -128,8 +130,6 @@
                     data: ds
                 },
                 chartArea: {
-                    //width: 400,
-                    //height: 300,
                     background: ""
                 },
                 seriesDefaults: {
@@ -138,11 +138,28 @@
                 series: [{
                     field: "value",
                     aggregate: "avg",
-                    categoryField: "date"
+                    categoryField: "date",
+                    color: that.viewModel.color,
+                    markers: {
+                        visible: false
+                    }
                 }],
+                valueAxis: {
+				    color: "#999999",
+                    line: {
+      				  visible: false
+    				},
+                    majorGridLines: {
+      				  width: 1,
+          			  color: "rgba(255, 255, 255, .2)"
+    				}
+  			  },
                 categoryAxis: {
                     baseUnits: "months",
                     color: "#999999",
+                    line: {
+          			  color: "rgba(255, 255, 255, .2)"
+    				},
                     majorGridLines: {
                         visible: false
                     },

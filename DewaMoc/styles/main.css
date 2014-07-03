@@ -13,7 +13,8 @@
 }
 
 .km-ios7 .km-view.view,
-.km-ios7 .km-view .km-header {
+.km-ios7 .km-view .km-header,
+.km-ios7 .km-view .km-footer {
     background: #1a1c22 url("images/background-main.png") no-repeat 0 0;
     background-size: 100%;
 }
@@ -312,7 +313,9 @@
 /* footer styles */
 .km-ios7 .km-view .km-footer {
     height: 6.35em;
+    background-position: 0 100%;
 }
+
 .km-ios7 .km-view .km-footer .km-view-title {
     padding: .65em .65em 0;
 }
@@ -627,13 +630,13 @@
 }
 
 .bill-details-items .ds-item-wrp.ds-item-right {
-    margin-right: 1.25em;
+    margin-right: .75em;
     text-align: right;
 }
 
 .bill-details-items .ds-item-wrp.ds-item-has-icon {
     margin-top: .5em;
-    margin-left: 5em;
+    margin-left: 5.75em;
 }
 
 .bill-details-items .ds-title {
@@ -643,4 +646,8 @@
 .bill-details-items .ds-value {
     font-size: 1.25em;
     margin-top: 1em;
+}
+
+.ds-chart {
+    padding: 0 1em;
 }
