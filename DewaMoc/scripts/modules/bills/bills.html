@@ -1,4 +1,5 @@
 <div id="bills-view"
+     class="view bills-view"
      data-role="view"
 	 data-init="app.billsService.initModule"
 	 data-model="app.billsService.viewModel"
@@ -6,28 +7,36 @@
     
 	<div data-role="header">
         <div data-role="navbar">
-            
+            <h1>Bills</h1>
+            <a class="ds-header-button ds-header-back" data-align="left" data-role="backbutton"><i class="fa fa-chevron-left"></i><span>Back</span></a>
+            <a class="ds-header-button ds-header-add" data-align="right" data-role="button"><i class="fa fa-plus"></i><span>Add</span></a>
 		</div>
 	</div>
     
-    <ul data-role="listview"
+    <ul class="bills-items"
+        data-role="listview"
         data-bind="source: billsDataSource"
 		data-template="bills-template">       
     </ul>
-    
-    <a>Pay all <span data-bind="text: totalCost"></span></a>
 
     <div data-role="footer">
         <div data-role="navbar">
-            
+            <a class="ds-button ds-button-large ds-button-pay" data-role="button">
+                <span class="ds-title">Pay all</span>
+				<span class="ds-cost" data-bind="text: totalCost"></span>
+            </a>
 		</div>
 	</div>
     
     <script id="bills-template" type="text/x-kendo-tmpl">
-    	<a class="#: icon #" href="scripts/modules/bills/bill-details.html?dataId=#: id #">
-            <span>#: title #</span>
-            <span>#: date #</span>
-            <span>#: cost #</span>
+    	<a href="scripts/modules/bills/bill-details.html?dataId=#: id #">
+        	<span class="ds-icon ds-icon-#: icon #">
+				<i class="fa #: icon #"></i>
+        	</span>
+            <span class="ds-title">#: title #</span>
+            <span class="ds-date">#: date #</span>
+            <span class="ds-cost">#: cost #</span>
     	</a>
     </script>
+
 </div>
