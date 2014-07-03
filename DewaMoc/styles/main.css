@@ -548,3 +548,14 @@
     line-height: 1.5;
     opacity: .5;
 }
+
+.bills-items .ds-cost {
+    float: right;
+    margin-top: .5em;
+}
+
+.km-ios7 .km-view a.leaflet-control-zoom-in,
+.km-ios7 .km-view a.leaflet-control-zoom-out {
+    color: #000;
+	font-size: 1.5em;
+}
