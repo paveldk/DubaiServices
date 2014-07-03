@@ -29,12 +29,15 @@
 	</div>
     
     <script id="bills-template" type="text/x-kendo-tmpl">
-    	<a href="scripts/modules/bills/bill-details.html?dataId=#: id #">
+    	<a class="cf" href="scripts/modules/bills/bill-details.html?dataId=#: id #">
         	<span class="ds-icon ds-icon-#: icon #">
 				<i class="fa #: icon #"></i>
         	</span>
-            <span class="ds-title">#: title #</span>
-            <span class="ds-date">#: date #</span>
+        	<span class="ds-item-content-wrp">
+                <span class="ds-title">#: title #</span>
+                <span class="ds-date ds-small">July 17, 2014</span>
+            </span>
+            <!--<span class="ds-date ds-small">#: date #</span>-->
             <span class="ds-cost">#: cost #</span>
     	</a>
     </script>

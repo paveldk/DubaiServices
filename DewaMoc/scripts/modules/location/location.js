@@ -5,7 +5,7 @@
 
      CenterIcon = L.Icon.extend({
         options: {
-            iconSize: [37, 41],
+            iconSize: [23, 34],
     		iconAnchor:   [22, 94]
         }
     });

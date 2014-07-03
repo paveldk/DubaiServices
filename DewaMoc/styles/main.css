@@ -1,3 +1,17 @@
+.cf {
+    zoom: 1;
+}
+
+.cf:before,
+.cf:after {
+    display: table;
+    content: '';
+}
+
+.cf:after {
+    clear: both;
+}
+
 .km-ios7 .km-view.view,
 .km-ios7 .km-view .km-header {
     background: #1a1c22 url("images/background-main.png") no-repeat 0 0;
@@ -18,6 +32,7 @@
 
 .km-ios7 .km-view .km-navbar {
     border: 0 none;
+    background-image: none;
 }
 
 .km-ios7 .k-list,
@@ -148,6 +163,8 @@
     color: #fff;
     text-align: center;
     line-height: 44px;
+    background-image: none;
+    background-color: transparent;
 }
 
 .km-ios7 .km-navbar .km-button.ds-header-button.km-state-active {
@@ -155,14 +172,16 @@
 }
 
 .km-ios7 .km-navbar .km-button.ds-header-button span,
-.km-ios7 .km-navbar .km-button.ds-header-button:before {
-    display: none;
+.km-ios7 .km-navbar .km-button.ds-header-button:before,
+.km-ios7 .km-back:before {
+    display: none !important;
 }
 
 .km-ios7 .km-view .km-button.ds-button,
 .km-ios7 .km-view .km-content input.ds-input {
     -webkit-border-radius: .2em;
     border-radius: .2em;
+    background-image: none;
 }
 
 .km-ios7 .km-view .km-button.ds-button,
@@ -197,6 +216,8 @@
 
 .km-ios7 .km-view .km-button.ds-button-regular {
     border: 0 none;
+    background-image: none;
+    background-color: transparent;
 }
 
 .km-ios7 .km-view .km-button.ds-button-regular.km-state-active {
@@ -275,6 +296,11 @@
 }
 
 /* header styles */
+.km-ios7 .km-view .km-header .km-view-title {
+    background-image: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 
 .km-ios7 .km-view .km-header h1 {
     margin: 0;
@@ -351,8 +377,9 @@
     border: 0 none;
     -webkit-border-radius: 0;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .3) !important;
     text-align: center;
+    background-image: none !important;
 }
 
 .dashboard-view .dashboard-items .ds-icon,
@@ -440,7 +467,12 @@
 
 .bills-view .bills-items > li > a.km-listview-link {
     margin: 0;
-    padding: .5em;
+    min-height: 3.95em;
+	padding: .8em 1.25em;
+}
+
+.bills-view .bills-items > li.km-state-active > a.km-listview-link {
+    background: none;
 }
 
 .bills-view .ds-icon {
@@ -453,6 +485,7 @@
     border-radius: 1.125em;
     text-align: center;
     
+    float: left;
 }
 
 .bills-view .ds-icon .fa {
@@ -494,4 +527,35 @@
 .ds-icon.ds-icon-fa-ellipsis-h {
     border-color: #51c2b7;
     color: #51c2b7;
+}
+
+.ds-item-content-wrp {
+    float: left;
+    min-width: 50%;
+    margin-left: .75em;
+    margin-top: -.35em;
+}
+
+.ds-item-content-wrp .ds-title,
+.ds-item-content-wrp .ds-date {
+    display: block;
+    font-size: .85em;
+}
+
+.ds-small,
+.ds-item-content-wrp .ds-date {
+    font-size: .65em;
+    line-height: 1.5;
+    opacity: .5;
+}
+
+.bills-items .ds-cost {
+    float: right;
+    margin-top: .5em;
+}
+
+.km-ios7 .km-view a.leaflet-control-zoom-in,
+.km-ios7 .km-view a.leaflet-control-zoom-out {
+    color: #000;
+	font-size: 1.5em;
 }
