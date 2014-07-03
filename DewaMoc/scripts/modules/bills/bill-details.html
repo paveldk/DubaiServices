@@ -1,0 +1,41 @@
+<div id="bill-details-view"
+	 class="details-view"
+	 data-role="view"
+	 data-layout="drawer-layout"
+	 data-show="app.billDetailsService.showData"
+	 data-model="app.billDetailsService.viewModel">
+
+	<div data-role="header">
+        <div data-role="navbar">
+            
+		</div>
+	</div>
+	
+    <h3 data-bind="text: title"></h3>
+    
+	<div data-template="bill-details-template" data-bind="source: this"></div>
+
+    <div data-role="footer">
+        <div data-role="navbar">
+            
+		</div>
+	</div>
+    
+    <script id="bill-details-template" type="text/x-kendo-template">
+    	<div class="#: icon #"></div>
+        
+        <p>Consumption</p>
+        <p>#: consumption #</p>
+        
+        <p>Account</p>
+        <p>#: account #</p>
+        
+        <p>Period</p>
+        <p>#: period #</p>
+        
+        <p>Usage</p>
+        <p>IT CAN BE DONE</p>
+        
+        <p>Pay <span>#: cost #</span></p>
+	</script>
+</div>

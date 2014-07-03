@@ -6,7 +6,7 @@
     
     app.config = {
         everlive: {
-            apiKey: "woLBIbIHeu9aWBrb",
+            apiKey: "s1l5TfxjScAdG5aH",
             scheme: "http"
         },
         views: {
