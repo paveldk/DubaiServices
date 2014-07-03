@@ -127,6 +127,11 @@
                 dataSource: {
                     data: ds
                 },
+                chartArea: {
+                    //width: 400,
+                    //height: 300,
+                    background: ""
+                },
                 seriesDefaults: {
                     type: "line"
                 },
@@ -137,11 +142,12 @@
                 }],
                 categoryAxis: {
                     baseUnits: "months",
+                    color: "#999999",
                     majorGridLines: {
                         visible: false
                     },
                     majorTicks: {
-                        visible: false,
+                        visible: false
                     }
                 }
             });
