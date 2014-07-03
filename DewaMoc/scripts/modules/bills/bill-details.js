@@ -9,12 +9,14 @@
         consumption: "",
         account: "",
         period: "",
-        usage: "",
+        periodChartDS: "",
         totalCost: "",
         
 		init: function () {
 			var that = this;
 
+            that.periodChartDS = new kendo.data.DataSource();
+            
 			kendo.data.ObservableObject.fn.init.apply(that, arguments);
         }
 	});
@@ -52,14 +54,17 @@
 
 		setData: function (billData) {
 			var that = this,
-                billData = billData.result;
+                billData = billData.result,
+                periodChartDS = new kendo.data.DataSource();
 
             that.viewModel.set("title", billData.Title);
             that.viewModel.set("icon", billData.Type.Icon);
 			that.viewModel.set("consumption", that.calculateTotalConsumption(billData.History));
             that.viewModel.set("account", billData.Account);
-            that.viewModel.set("period", that.calculatePeriod(billData.History));
             that.viewModel.set("totalCost", that.calculateTotalCost(billData.History));
+            that.viewModel.set("period", that.calculatePeriod(billData.History));
+            
+           	that.buildPeriodChartDS(billData.History);
 
 			app.common.hideLoading();
 		},
@@ -69,7 +74,7 @@
             
             for(var i = 0, l = history.length; i < l; i++) {
                 if(!history[i].Paid) {
-                    consumption += history[i].Consumption;
+                    consumption += parseInt(history[i].Consumption, 10);
                 }
             }
             
@@ -81,7 +86,7 @@
             
             for(var i = 0, l = history.length; i < l; i++) {
                 if(!history[i].Paid) {
-                    period += history[i].StartDate + " - " history[i].EndDate + " | ";
+                    period += history[i].StartDate + " - " + history[i].EndDate + " | ";
                 }
             }
             
@@ -91,13 +96,24 @@
         calculateTotalCost: function(history) {
             var cost = 0;
             
-              for(var i = 0, l = history.length; i < l; i++) {
+            for(var i = 0, l = history.length; i < l; i++) {
                 if(!history[i].Paid) {
                     cost += history[i].Cost;
                 }
             }
             
             return cost;
+        },
+        
+        buildPeriodChartDS: function(history) {
+            var that = this,
+                ds = [];
+            
+            for(var i = 0, l = history.length; i < l; i++) {
+                ds.push({value: parseInt(history[i].Consumption, 10), date: history[i].EndDate });
+            }
+            
+            that.viewModel.get("periodChartDS").data(ds);
         },
 
 		onError: function (e) {
