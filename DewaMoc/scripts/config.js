@@ -13,7 +13,8 @@
             init: "#init-view",
             signIn: "scripts/modules/login/signin.html",
             signUp: "scripts/modules/login/signup.html",
-            main: "scripts/modules/main/main.html",
+            dashboard: "scripts/modules/dashboard/dashboard.html",
+            main: "scripts/modules/main/main.html"
         }
     };
 })(window);
