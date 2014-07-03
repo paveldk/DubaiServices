@@ -4,7 +4,10 @@
         <title>Leaf Zone</title>
         <meta charset="utf-8" />
         
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="lib/kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
         
         <script src="cordova.js"></script>
         <script src="lib/leaflet-0.7.2/leaflet.js"></script>
@@ -25,7 +28,7 @@
 
     <body>
         <div id="init-view"
-             class="init-view"
+             class="view init-view"
              data-role="view"
              data-layout="default"
              data-stretch="true"
@@ -61,7 +64,7 @@
                 <li><a href="scripts/modules/locations/locations.html">Map</a></li>
                 
                 <li><a href="scripts/modules/profile/profile.html">Profile</a></li>
-                <li><a data-bind="click: logout"></i>Sign Out</a></li>
+                <li><a data-bind="click: logout">Sign Out</a></li>
             </ul>
         </div>
     </body>
