@@ -1,21 +1,23 @@
 <div id="signin-view"
+	 class="view signin-view"
      data-role="view"
      data-layout="default"
      data-stretch="true"
      data-transition="overlay:up"
      data-model="app.loginService.signInViewModel">
     
-    <div data-role="header">
-        <div data-role="navbar">
-            <a data-role="button" href="scripts/modules/login/signup.html">Sign Up</a>
-		</div>
-	</div>
-    
-    <div>
-        <form data-bind="events: { keyup: checkEnter }">
-            <input type="text" data-bind="value: username" placeholder="User Name" />
-            <input type="password" data-bind="value: password" placeholder="Password" />
-            <input data-role="button" type="submit" data-bind="click: onLogin" value="Sign In"/>
+    <div class="ds-content-wrp">
+        <h1>Dubai Services</h1>
+        <form class="ds-form" data-bind="events: { keyup: checkEnter }">
+            <label class="ds-input-wrp ds-icon ds-username"><input class="ds-input" type="text" data-bind="value: username" placeholder="User Name" /></label>
+            <label class="ds-input-wrp ds-icon ds-password"><input class="ds-input ds-password" type="password" data-bind="value: password" placeholder="Password" /></label>
+            <input class="ds-button ds-button-large" data-role="button" type="submit" data-bind="click: onLogin" value="Login"/>
+            <p class="bs-center-text">
+                <!--<a class="bs-no-underline ds-button-regular" data-role="button" href="scripts/modules/login/signup.html">Don't have an account?</a>-->
+                <a class="bs-no-underline ds-button-regular" data-role="button" href="#">Forgot your password?</a>
+            </p>
+            <p class="bs-center-text"><a>Terms of service</a></p>
 	    </form>
     </div>
+    
 </div>
