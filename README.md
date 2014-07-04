@@ -62,6 +62,11 @@ Step 5: Select one of the options from the drop-down menu:
 * Select **Build** to build the app in the cloud and scan the generated QR code which will open the app in the respective companion app.
 * Select a device to run your app in the device simulator in the browser. You can run multiple instances of the simulator in the browser.
 	
+You can follow the video from the image below for an overview of the workspace and projects in the Telerik Platform.
+
+<a href="http://screencast.com/t/11ptcpiw" target="_blank"><img src="http://screencast.com/t/KoyH3IbkETc" 
+alt="Run the project in Telerik Platform" /></a>
+
 ### Implementation Details ###
 
 #### Backend ####
