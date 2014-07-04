@@ -8,8 +8,8 @@ This app lets you create an account to monitor and keep up with household bills.
 
 The sample app shows the following features of the Telerik Platform.
 
-* Using the [Telerik AppBuilder]() cloud IDE to develop and build a hybrid mobile app with HTML3, CSS and JavaScript.
-* Creating a well-structured JavaScript code base using the "Module" pattern and the Telerik Kendo UI MVVM framework.
+* Using the [Telerik AppBuilder](http://www.telerik.com/appbuilder) cloud IDE to develop and build a hybrid mobile app with HTML3, CSS and JavaScript.
+* Creating a well-structured JavaScript code base using the "Module" pattern and the [Telerik Kendo UI](http://demos.telerik.com/kendo-ui/) MVVM framework.
 * Designing the user interface with multiple UI widgets from the Telerik Kendo UI Core package.
 * Creating a login and authentication flow for users in a [Telerik Backend Services](http://www.telerik.com/backend-services) datastore.
 * Creating and storing data items in a Telerik Backend Services project.
