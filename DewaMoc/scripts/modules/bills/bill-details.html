@@ -2,6 +2,7 @@
      class="view bill-details-view"
 	 data-role="view"
 	 data-layout="drawer-layout"
+     data-transition="overlay:left"
 	 data-show="app.billDetailsService.showData"
 	 data-model="app.billDetailsService.viewModel">
 
@@ -9,7 +10,6 @@
         <div data-role="navbar">
             <h1 data-bind="text: title"></h1>
             <a class="ds-header-button ds-header-back" data-align="left" data-role="backbutton"><i class="fa fa-chevron-left"></i><span>Back</span></a>
-            <a class="ds-header-button ds-header-add" data-align="right" data-role="button"><i class="fa fa-pencil-square-o"></i><span>Edit</span></a>
 		</div>
 	</div>
     
