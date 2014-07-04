@@ -8,7 +8,7 @@ This app lets you create an account to monitor and keep up with household bills.
 
 The sample app shows the following features of the Telerik Platform.
 
-* Using the [Telerik AppBuilder](http://www.telerik.com/appbuilder) cloud IDE to develop and build a hybrid mobile app with HTML3, CSS and JavaScript.
+* Using the [Telerik AppBuilder](http://www.telerik.com/appbuilder) cloud IDE to develop and build a hybrid mobile app with HTML5, CSS and JavaScript.
 * Creating a well-structured JavaScript code base using the "Module" pattern and the [Telerik Kendo UI](http://demos.telerik.com/kendo-ui/) MVVM framework.
 * Designing the user interface with multiple UI widgets from the Telerik Kendo UI Core package.
 * Creating a login and authentication flow for users in a [Telerik Backend Services](http://www.telerik.com/backend-services) datastore.
@@ -26,7 +26,7 @@ Step 1: Install a QR code reader on your device.
 
 Step 2: Install the AppBuilder companion app.
 
-AppBuilder companion app is a test utility for iOS, Android, and Windows Phone 8 devices and is available as a free app in the [App Store](https://itunes.apple.com/bg/app/icenium-ion/id527547398?mt=8) and [Google Play](https://play.google.com/store/apps/details?id=com.telerik.AppBuilder). 
+AppBuilder companion app is a test utility for iOS and Android and is available as a free app in the [App Store](https://itunes.apple.com/bg/app/icenium-ion/id527547398?mt=8) and [Google Play](https://play.google.com/store/apps/details?id=com.telerik.AppBuilder). 
 
 * Download and install the AppBuilder companion app for iOS
 
@@ -40,12 +40,15 @@ Scan the following QR code on the device, open the URL, and install the app from
 
 ![Download AppBuilder companion app from the App Store QR code](/../docs-images/docs-resources/download-appbuilder-companion-app-android.png "Download AppBuilder companion app Android")
 
-Step 3: Load/Run the sample app.
+Step 3: Load and run the sample app.
 
 * On your iOS device, tap and swipe with two fingers to toggle the built-in menu. Use the built-in QR code scanner to scan the following QR code.
 
+TODO: // QR for iOS
+
 * On your Android device, use a QR code scanner to scan the following QR code. Share the decoded URL to the AppBuilder companion app. 
 
+TODO: // QR for Android
 
 ### Run From the Telerik Platform Portal ###
 
@@ -62,7 +65,7 @@ Step 5: Select one of the options from the drop-down menu:
 * Select **Build** to build the app in the cloud and scan the generated QR code which will open the app in the respective companion app.
 * Select a device to run your app in the device simulator in the browser. You can run multiple instances of the simulator in the browser.
 	
-You can follow the video from the image below for an overview of the workspace and projects in the Telerik Platform.
+Follow the link below to watch a quick overview of the workspace and projects in the Telerik Platform.
 
 <a href="http://screencast.com/t/11ptcpiw" target="_blank"></a>
 
@@ -81,7 +84,7 @@ The backend of the app uses the following features and SDKs of Telerik Backend S
 
 #### Client app ####
 
-The client app is built with the AppBuilder In-Browser client with HTML5, CSS and JavaScript. The architecture of the app follows the MVVM pattern and uses the MVVM framework provided by Kendo UI.
+The mobile app is built with the AppBuilder In-Browser client with HTML5, CSS and JavaScript. The architecture of the app follows the MVVM pattern and uses the MVVM framework provided by Kendo UI.
 
 The entry point of the app is located in `app.js`. When the PhoneGap `deviceready` event is fired we initialize the `kendo.mobile.Application`, the starting point of the Kendo UI mobile, and the `Everlive` global instance, which is the starting point of the Backend Services SDK:
     
