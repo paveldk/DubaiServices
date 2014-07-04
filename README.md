@@ -67,7 +67,7 @@ Step 5: Select one of the options from the drop-down menu:
 	
 Follow the link below to watch a quick overview of the workspace and projects in the Telerik Platform.
 
-<a href="http://screencast.com/t/11ptcpiw" target="_blank"></a>
+<a href="http://screencast.com/t/11ptcpiw" target="_blank">Open and run the project in Telerik Platform</a>
 
 ### Implementation Details ###
 
