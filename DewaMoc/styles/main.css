@@ -495,7 +495,6 @@
     padding: 0;
     border-width: 0;
     border-image: none;
-    background-color: rgba(0, 0, 0, .3);
 }
 
 .bills-view .bills-items > li:last-child {
@@ -508,6 +507,12 @@
     overflow: hidden;
     margin: 0;
     padding: .8em 2.5em .8em 1.25em;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, .3);
+}
+.bills-view .bills-items > li > a.km-listview-link.paid {
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .bills-view .bills-items > li > a.km-listview-link:before {
