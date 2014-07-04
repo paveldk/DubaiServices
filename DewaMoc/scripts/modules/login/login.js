@@ -189,6 +189,9 @@
             .then(function(data) {
                 that.set("displayName", data.result.DisplayName);
                 app.currentUser = data.result;
+                
+                app.settingsService.setUserCredentials(that.get("username").trim(), that.get("password").trim(), app.currentUser.Id);
+                
                 app.common.navigateToView(app.config.views.dashboard);
             });
         },
@@ -196,7 +199,6 @@
     
     SignUpViewModel = LoginBase.extend({
         viewId: "#signup-view",
-        fullname: "",
         username: "",
         email: "",
         password: "",
@@ -212,17 +214,15 @@
                 username = that.get("username").trim(),
                 password = that.get("password").trim(),
                 repassword = that.get("repassword").trim(),
-                email = that.get("email").trim(),
-                fullname = that.get("fullname").trim();
+                email = that.get("email").trim();
             
-            if (that.checkRequiredField("fullname") &&
-                that.checkRequiredField("username") &&
+            if (that.checkRequiredField("username") &&
                 that.checkRequiredField("email") &&
                 that.checkRequiredField("password") &&
                 that.checkRequiredField("repassword") &&
                 that.checkPasword(password, repassword)) {
                 that._onStart();
-                app.everlive.Users.register(username, password, { Email: email, DisplayName: fullname })
+                app.everlive.Users.register(username, password, { Email: email, DisplayName: username })
                     .then($.proxy(that._onSuccess, that, that.consts.PROVIDER_DEFAULT))
                     .then(null, $.proxy(that._onError, that, that.consts.PROVIDER_DEFAULT));
             }
@@ -252,13 +252,19 @@
         },
         
         _onSuccess: function (provider, data) {
-            app.common.hideLoading();          
+            app.common.hideLoading();         
             
+            app.common.notification("Confirmation email has been sent", "Confirmation email has been sent");
+
             app.everlive.Users.getById( data.result.Id)
-            .then(function(data) {
-                app.currentUser = data.result;
-                app.common.navigateToView(app.config.views.dashboard);
-            });			
+                .then(function(data) {
+                    
+                    app.currentUser = data.result;
+                    
+                    app.settingsService.setUserCredentials(that.get("username").trim(), that.get("password").trim(), app.currentUser.Id);
+                    
+                    app.common.navigateToView(app.config.views.dashboard);
+                });			
         },
     });
     
