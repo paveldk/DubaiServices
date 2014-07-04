@@ -142,6 +142,8 @@
         },
         
         createChart: function(ds) {
+            var that = this;
+            
             // todo move to MVVM
             $chart = $("#chart").empty();
             

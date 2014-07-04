@@ -45,11 +45,11 @@
 			that.initModule = $.proxy(that.initData, that);
 		},
             
-        _bindToEvents: {
-            var that = this;
-            
-			that.viewModel.on(that.viewModel.events.languageUpdate, $.proxy(that.setLanguage, that));
-        }    
+        _bindToEvents: function () {
+    		var that = this;
+
+    		that.viewModel.on(that.viewModel.events.languageUpdate, $.proxy(that.setLanguage, that));
+		},
 
 		initData: function () {
 			var that = this;

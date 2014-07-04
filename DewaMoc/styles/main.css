@@ -191,6 +191,10 @@
     width: 100%;
 }
 
+.km-ios7 .km-view .km-button.ds-button.ds-button-center {
+    text-align: center;
+}
+
 .km-ios7 .km-view .km-button.ds-button-regular {
     border: 0 none;
     background-color: transparent;
@@ -303,16 +307,15 @@
 }
 
 /* sign in view styles */
-.signin-view {
-    
-}
 
-.signin-view .ds-content-wrp {
+.signin-view .ds-content-wrp,
+.settings-view .ds-content-wrp {
     background: transparent url("images/background-city.png") no-repeat 50% -2.5em;
     background-size: 125%;
 }
 
-.signin-view h1 {
+.signin-view h1,
+.settings-view h1 {
     font-size: 2.35em;
 }
 
@@ -329,7 +332,33 @@
 
 /* sign up view styles */
 .signup-view {
+    position: relative;
+}
+
+/* settings view styles */
+.settings-view .ds-langs {
+    position: absolute;
+    right: .65em;
+    bottom: 10em;
+    left: .65em;
+    padding: 0;
+}
+
+@media all and (max-height: 480px) {
     
+    .settings-view .ds-langs {
+        bottom: 6em;
+    }
+}
+
+.settings-view .ds-langs li {
+    float: left;
+    width: 48%;
+    list-style-type: none;
+}
+
+.settings-view .ds-langs li:last-child {
+    float: right;
 }
 
 /* dashboard view styles */
@@ -451,9 +480,9 @@
 
 .bills-view .bills-items > li > a.km-listview-link {
     position: relative;
+    overflow: hidden;
     margin: 0;
     padding: .8em 2.5em .8em 1.25em;
-    min-height: 3.95em;
 }
 
 .bills-view .bills-items > li > a.km-listview-link:before {
@@ -499,6 +528,7 @@
 }
 
 .bill-details-view .ds-icon {
+    display: none;
     width: 4em;
     height: 4em;
     -webkit-border-radius: 2em;
@@ -508,6 +538,15 @@
 .bill-details-view .ds-icon .fa {
     margin-top: .35em;
     font-size: 2.25em;
+}
+
+.ds-icon.ds-icon-fa-bolt,
+.ds-icon.ds-icon-fa-spinner,
+.ds-icon.ds-icon-fa-home,
+.ds-icon.ds-icon-fa-recycle,
+.ds-icon.ds-icon-fa-tint,
+.ds-icon.ds-icon-fa-ellipsis-h {
+    display: block;
 }
 
 /* Electricity icon wrapper */
@@ -550,7 +589,7 @@
     float: left;
     margin-top: -.35em;
     margin-left: .75em;
-    min-width: 50%;
+    width: 50%;
 }
 
 .ds-item-content-wrp .ds-title,
@@ -568,9 +607,11 @@
 }
 
 .bills-items .ds-cost {
+    display: inline-block;
     float: right;
-    margin-top: .4em;
+    height: 2em;
     font-size: 1.2em;
+    line-height: 2em;
 }
 
 .km-ios7 .km-view a.leaflet-control-zoom-in,
@@ -612,7 +653,7 @@
 
 .bill-details-items .ds-item-wrp.ds-item-has-icon {
     margin-top: .5em;
-    margin-left: 5.75em;
+    margin-left: 5em;
 }
 
 .bill-details-items .ds-title {
