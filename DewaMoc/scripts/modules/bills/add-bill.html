@@ -1,0 +1,66 @@
+<div id="add-bill-view"
+     class="view"
+	 data-role="view"
+	 data-layout="drawer-layout"
+     data-transition="overlay:left"
+     data-init="app.addBillService.initModule"
+	 data-show="app.addBillService.showModule"
+	 data-model="app.addBillService.viewModel">
+
+	<div data-role="header">
+        <div data-role="navbar">
+            <h1 data-bind="visible: isEn">Add Bill</h1>
+            <h1 data-bind="invisible: isEn">إضافة بيل</h1>
+
+            <a class="ds-header-button ds-header-back" data-align="left" data-role="backbutton"><i class="fa fa-chevron-left"></i><span>Back</span></a>
+		</div>
+	</div>
+    
+    <form data-bind="visible: isEn">
+        <p>Type</p>      
+        <ul class="bills-items"
+            data-role="listview"
+            data-bind="source: typesDataSource, change: onTypeChange"
+            data-template="bills-template-en">       
+        </ul>
+        
+        <p>Name</p>
+        <input type="text" data-bind="" data-bind="value: name" />
+        
+        <p>Account</p>
+        <input type="text" data-bind="" data-bind="value: account" />
+    </form>
+    
+    <form data-bind="invisible: isEn">
+        <p>نوع</p>     
+        <ul class="bills-items"
+            data-role="listview"
+            data-bind="source: typesDataSource, change: onTypeChange"
+            data-template="bills-template-ar">       
+        </ul>
+        
+        <p>سمى</p>
+        <input type="text" data-bind="" data-bind="value: name" />
+        
+        <p>رقم الحساب</p>
+        <input type="text" data-bind="" data-bind="value: account" />
+    </form>     
+        
+    <div data-role="footer">
+        <div class="ds-navbar" data-role="navbar">
+            <a class="ds-button ds-button-large ds-button-pay" data-role="button" data-bind="click: onAdd">
+                <span class="ds-title" data-bind="visible: isEn">Add</span>
+                <span class="ds-title" data-bind="invisible: isEn">دفع</span>
+				<span class="ds-cost" data-bind="text: cost"></span>
+            </a>
+		</div>
+	</div>
+    
+    <script id="bills-template-en" type="text/x-kendo-tmpl">
+    	<span>#: Title_en #</span>
+    </script>
+    
+    <script id="bills-template-ar" type="text/x-kendo-tmpl">
+    	<span>#: Title_ar #</span>
+    </script>
+</div>
