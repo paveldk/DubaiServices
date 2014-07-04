@@ -12,12 +12,14 @@
         date: "N/A",
         cost: 0,
         icon: "",
+        color: "",
         
 		init: function (item) {
 			var that = this;
             
             that.id = item.Id;
             that.icon = item.Type.Icon;
+            that.color = item.Type.Color;
             that.title = item.Title;
             
             if(item.History.length > 0) {

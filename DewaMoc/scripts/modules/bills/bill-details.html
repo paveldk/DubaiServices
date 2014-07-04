@@ -1,4 +1,5 @@
 <div id="bill-details-view"
+     class="view bill-details-view"
 	 data-role="view"
 	 data-layout="drawer-layout"
 	 data-show="app.billDetailsService.showData"
@@ -6,37 +7,49 @@
 
 	<div data-role="header">
         <div data-role="navbar">
-            
+            <h1 data-bind="text: title"></h1>
+            <a class="ds-header-button ds-header-back" data-align="left" data-role="backbutton"><i class="fa fa-chevron-left"></i><span>Back</span></a>
+            <a class="ds-header-button ds-header-add" data-align="right" data-role="button"><i class="fa fa-pencil-square-o"></i><span>Edit</span></a>
 		</div>
 	</div>
-	
-    <h3 data-bind="text: title"></h3>
     
-	<div data-template="bill-details-template" data-bind="source: this"></div>
+	<div class="bill-details-items" data-template="bill-details-template" data-bind="source: this"></div>
 
-    <div id="chart"></div>
+    <div id="chart" class="ds-chart"></div>
     
     <div data-role="footer">
-        <div data-role="navbar">
-            
+        <div class="ds-navbar" data-role="navbar">
+            <a class="ds-button ds-button-large ds-button-pay" data-role="button">
+                <span class="ds-title">Pay</span>
+				<span class="ds-cost" data-bind="text: totalCost"></span>
+            </a>
 		</div>
 	</div>
     
     <script id="bill-details-template" type="text/x-kendo-template">
-    	<div class="#: icon #"></div>
+        <span class="ds-icon ds-icon-#: icon #">
+			<i class="fa #: icon #"></i>
+    	</span>
         
-        <p>Consumption</p>
-        <p>#: consumption #</p>
+        <span class="ds-item-wrp ds-item-right ds-item-has-icon">
+            <span class="ds-title">Consumption</span>
+            <span class="ds-value">#: consumption #</span>
+        </span>
         
-        <p>Account</p>
-        <p>#: account #</p>
+        <span class="ds-item-wrp">
+            <span class="ds-title">Account</span>
+            <span class="ds-value">#: account #</span>
+        </span>
         
-        <p>Period</p>
-        <p>#: period #</p>
+        <span class="ds-item-wrp">
+            <span class="ds-title">Period</span>
+            <!-- <span class="ds-value">#: period #</span> -->
+            <span class="ds-value">June 16,2014 to July 17,2014</span>
+        </span>
         
-        <p>Usage</p>
-        <p>IT CAN BE DONE</p>
-        
-        <p>Pay <span>#: totalCost #</span></p>
+        <span class="ds-item-wrp">
+            <span class="ds-title">Usage</span>
+        </span>
+
 	</script>
 </div>

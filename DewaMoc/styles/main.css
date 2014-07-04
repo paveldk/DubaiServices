@@ -13,7 +13,8 @@
 }
 
 .km-ios7 .km-view.view,
-.km-ios7 .km-view .km-header {
+.km-ios7 .km-view .km-header,
+.km-ios7 .km-view .km-footer {
     background: #1a1c22 url("images/background-main.png") no-repeat 0 0;
     background-size: 100%;
 }
@@ -312,7 +313,9 @@
 /* footer styles */
 .km-ios7 .km-view .km-footer {
     height: 6.35em;
+    background-position: 0 100%;
 }
+
 .km-ios7 .km-view .km-footer .km-view-title {
     padding: .65em .65em 0;
 }
@@ -500,7 +503,8 @@
     background: none;
 }
 
-.bills-view .ds-icon {
+.bills-view .ds-icon,
+.bill-details-view .ds-icon {
     display: block;
     float: left;
     width: 2.25em;
@@ -512,9 +516,22 @@
     text-align: center;
 }
 
-.bills-view .ds-icon .fa {
+.bills-view .ds-icon .fa,
+.bill-details-view .ds-icon .fa {
     margin-top: .35em;
     font-size: 1.25em;
+}
+
+.bill-details-view .ds-icon {
+    width: 4em;
+    height: 4em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+}
+
+.bill-details-view .ds-icon .fa {
+    margin-top: .35em;
+    font-size: 2.25em;
 }
 
 /* Electricity icon wrapper */
@@ -567,7 +584,8 @@
 }
 
 .ds-small,
-.ds-item-content-wrp .ds-date {
+.ds-item-content-wrp .ds-date,
+.bill-details-items .ds-title {
     font-size: .65em;
     line-height: 1.5;
     opacity: .5;
@@ -583,4 +601,53 @@
 .km-ios7 .km-view a.leaflet-control-zoom-out {
     color: #000;
     font-size: 1.5em;
+}
+
+.bill-details-items {
+    margin-left: 1.25em;
+}
+
+.bill-details-items .ds-item-wrp,
+.bill-details-items .ds-title,
+.bill-details-items .ds-value {
+    display: block;
+}
+
+.bill-details-items .ds-item-wrp {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.bill-details-items .ds-item-wrp:before {
+    position: absolute;
+    display: block;
+    height: 1px;
+    content: "";
+    top: 1.8em;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.bill-details-items .ds-item-wrp.ds-item-right {
+    margin-right: .75em;
+    text-align: right;
+}
+
+.bill-details-items .ds-item-wrp.ds-item-has-icon {
+    margin-top: .5em;
+    margin-left: 5.75em;
+}
+
+.bill-details-items .ds-title {
+    font-size: .8em;
+}
+
+.bill-details-items .ds-value {
+    font-size: 1.25em;
+    margin-top: 1em;
+}
+
+.ds-chart {
+    padding: 0 1em;
 }
