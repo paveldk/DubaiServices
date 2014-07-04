@@ -363,7 +363,7 @@
 }
 
 .signin-view .ds-form {
-    margin-top: 13em;
+    margin-top: 14em;
 }
 
 @media all and (max-height: 480px) {
@@ -384,6 +384,13 @@
 
 .signup-view .ds-content-wrp {
     padding-top: 15em;
+}
+
+@media all and (max-height: 480px) {
+    
+    .signup-view .ds-content-wrp {
+        padding-top: 12em;
+    }
 }
 
 /* settings view styles */

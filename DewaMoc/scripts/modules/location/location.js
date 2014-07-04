@@ -1,5 +1,6 @@
 (function (global) {
 	var LocationService,
+        LocationViewModel,
         CenterIcon,
         app = global.app = global.app || {};
 
@@ -9,6 +10,20 @@
     		iconAnchor:   [22, 94]
         }
     });
+    
+    LocationViewModel = kendo.data.ObservableObject.extend({
+        viewId: "#location-view",
+        header_en: "Customer Centers",
+        header_ar: "مراكز العملاء",
+        header: "",
+        $view: null,
+        
+		init: function () {
+			var that = this;
+            
+			kendo.data.ObservableObject.fn.init.apply(that, that);
+		}
+	});
     
 	LocationService = kendo.Class.extend({
         locationData: null,
@@ -20,22 +35,29 @@
 
             that.class1 = new CenterIcon({iconUrl: 'styles/images/map-pin-class-1.png', iconRetinaUrl: 'styles/images/map-pin-class-1@2x.png'});
             
+            that.viewModel = new LocationViewModel();
+            
             that.locationData = [];
 			that.showModule = $.proxy(that.initData, that);
 		},
         
         initData: function () {
             var that = this,
-            	q = new Everlive.Query();
+            	q = new Everlive.Query(),
+        		language = app.settingsService.getLanguage();        
         
             app.common.showLoading();
+            
+            that.viewModel.$view = $(that.viewModel.viewId);
+            that.viewModel.$view.removeClass("en ar").addClass(language);
+            that.viewModel.set("header", that["header_" + language]);
             
             q.select("Location", "Type", "Id");
         
             return app.everlive.data("CustomerCenter").get(q)
-            .then($.proxy(that.storeLocationData, that))
-            .then($.proxy(that.getCurrentLocation, that))
-            .then($.proxy(that.updateMarkers, that));
+                .then($.proxy(that.storeLocationData, that))
+                .then($.proxy(that.getCurrentLocation, that))
+                .then($.proxy(that.updateMarkers, that));
         },
         
         storeLocationData: function (data) {

@@ -23,7 +23,7 @@
             that.title = item.Title;
             
             if(item.History.length > 0) {
-                that.date = item.History[item.History.length - 1].EndDate;
+                that.date = new Date(item.History[item.History.length - 1].EndDate).format("mmm dd, yyyy");
             }
             
             that.setCost(item.History);
@@ -43,8 +43,10 @@
 	});
     
 	BillsViewModel = kendo.data.ObservableObject.extend({
+        viewId: "#bills-view",
 		billsDataSource: null,
         totalCost: 0,
+        isEn: true,
         
         events: {
             payAll: "payAll"
@@ -90,9 +92,14 @@
         },
 
 		initData: function () {
-			var that = this;
+			var that = this,
+            	language = app.settingsService.getLanguage();
 
             app.common.showLoading();
+            
+            that.viewModel.$view = $(that.viewModel.viewId);
+            that.viewModel.$view.removeClass("en ar").addClass(language);
+            that.viewModel.set("isEn", language === "en");
             
 			that.getBillsData();
 		},

@@ -6,12 +6,14 @@
 	BillDetailsViewModel = kendo.data.ObservableObject.extend({
         id: "",
         title: "",
-        icon: "",
+        parentClass: "",
+        innerClass: "",
         color: "",
         consumption: "",
         account: "",
-        period: "",
+        date: "",
         cost: "",
+        viewId: "#bill-details-view",
         
         events: {
             payBill: "payBill"
@@ -60,15 +62,21 @@
 
 		initData: function (e) {
 			var that = this,
-				dataId = e.view.params.dataId;
+				dataId = e.view.params.dataId,
+            	language = app.settingsService.getLanguage();
 
 			if (!dataId) {
 				return;
 			}
             
+            
+            app.common.showLoading();
+
             that.viewModel.set("id", dataId);
 
-			app.common.showLoading();
+            that.viewModel.$view = $(that.viewModel.viewId);
+            that.viewModel.$view.removeClass("en ar").addClass(language);
+            that.viewModel.set("isEn", language === "en");
 
 			app.everlive.data("Bill").expand(that.expandExp).getById(dataId)
                 .then($.proxy(that.setData, that))
@@ -81,12 +89,13 @@
                 periodChartDS = new kendo.data.DataSource();
 
             that.viewModel.set("title", billData.Title);
-            that.viewModel.set("icon", billData.Type.Icon);
+            that.viewModel.set("parentClass",  "ds-icon ds-icon-" + billData.Type.Icon);
+            that.viewModel.set("innerClass", "fa " + billData.Type.Icon);
             that.viewModel.set("color", billData.Type.Color);
 			that.viewModel.set("consumption", that.calculateTotalConsumption(billData.History));
             that.viewModel.set("account", billData.Account);
             that.viewModel.set("cost", that.calculateTotalCost(billData.History));
-            that.viewModel.set("period", that.calculatePeriod(billData.History));
+            that.viewModel.set("date", that.calculatePeriod(billData.History));
             
            	that.buildPeriodChartDS(billData.History);
 
@@ -110,7 +119,7 @@
             
             for(var i = 0, l = history.length; i < l; i++) {
                 if(!history[i].Paid) {
-                    period += history[i].StartDate + " - " + history[i].EndDate + " | ";
+                    period += new Date(history[i].StartDate).format("mmm dd, yyyy") + " to " + new Date(history[i].EndDate).format("mmm dd, yyyy") + " | \n";
                 }
             }
             
