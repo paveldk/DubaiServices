@@ -42,52 +42,28 @@
     color: #274c65;
 }
 
-.km-ios7.km-pane>.km-loader,
-.km-ios7 .km-pane>.km-loader {
-    background: rgba(0, 0, 0, .5);
+.km-ios7.km-pane > .km-loader,
+.km-ios7 .km-pane > .km-loader {
+    background: rgba(0, 0, 0, .7);
 }
 
-.km-ios7 .km-loading:before {
-    color: rgba(255, 255, 255, .8);
+.km-ios7 .km-loading {
+    margin-left: 10px;
+    background: #fff;
 }
 
-.km-ios7 .km-loading:after {
-    color: rgba(255, 255, 255, .7);
-}
-
-.km-ios7 .km-loading-left {
-    color: rgba(255, 255, 255, .6);
-}
-
-.km-ios7 .km-loading,
 .km-ios7 .km-loader .km-loading-left,
-.km-root .km-ios7 .km-load-more.km-scroller-refresh .km-icon,
-.km-root .km-ios7 .km-scroller-pull.km-scroller-refresh .km-icon,
-.km-ios7 .km-scroller-refresh .km-loading-left {
-    -webkit-box-shadow: 16px 0 rgba(255, 255, 255, .5);
-    box-shadow: 16px 0 rgba(255, 255, 255, .5);
+.km-ios7 .km-scroller-refresh .km-loading-left,
+.km-ios7 .km-loader .km-loading-right,
+.km-ios7 .km-scroller-refresh .km-loading-right {
+    background-color: rgba(255, 255, 255, .5);
 }
 
-.km-ios7 .km-loading:before,
-.km-ios7 .km-loading:after,
-.km-ios7 .km-load-more.km-scroller-refresh .km-icon:after,
-.km-ios7 .km-load-more.km-scroller-refresh .km-icon:before,
-.km-ios7 .km-scroller-pull.km-scroller-refresh .km-icon:after,
-.km-ios7 .km-scroller-pull.km-scroller-refresh .km-icon:before {
-    -webkit-box-shadow: 16px 0 rgba(255, 255, 255, .4);
-    box-shadow: 16px 0 rgba(255, 255, 255, .4);
-}
-
-.km-ios7 .km-loading:after,
-.km-ios7 .km-load-more.km-scroller-refresh .km-icon:after,
-.km-ios7 .km-scroller-pull.km-scroller-refresh .km-icon:after {
-    -webkit-box-shadow: 16px 0 rgba(255, 255, 255, .3);
-    box-shadow: 16px 0 rgba(255, 255, 255, .3);
-}
-
-.km-ios7.km-pane>.km-loader h1,
-.km-ios7 .km-pane>.km-loader h1 {
-    display: none;
+.km-ios7.km-pane > .km-loader h1,
+.km-ios7 .km-pane > .km-loader h1 {
+    overflow: hidden;
+    width: 0;
+    text-indent: -9999px;
 }
 
 .km-ios7,
@@ -620,13 +596,13 @@
 
 .bill-details-items .ds-item-wrp:before {
     position: absolute;
+    top: 1.8em;
+    right: 0;
+    left: 0;
     display: block;
     height: 1px;
-    content: "";
-    top: 1.8em;
-    left: 0;
-    right: 0;
     background-color: rgba(255, 255, 255, .2);
+    content: "";
 }
 
 .bill-details-items .ds-item-wrp.ds-item-right {
@@ -644,8 +620,8 @@
 }
 
 .bill-details-items .ds-value {
-    font-size: 1.25em;
     margin-top: 1em;
+    font-size: 1.25em;
 }
 
 .ds-chart {
