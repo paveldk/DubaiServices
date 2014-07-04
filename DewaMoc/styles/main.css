@@ -19,8 +19,13 @@
     background-size: 100%;
 }
 
+.km-ios7 .km-view.signup-view .km-header {
+    background: none;
+    background-color: transparent;
+}
+
 ::-webkit-input-placeholder {
-   color: rgba(255, 255, 255, .5);
+   color: rgba(255, 255, 255, .35);
 }
 
 /* kendo override styles */
@@ -271,6 +276,10 @@
     content: "\f023";
 }
 
+.ds-icon.ds-email:before {
+    content: "\f003";
+}
+
 .km-ios7 .km-view .km-content input.ds-input:focus {
     -webkit-box-shadow: 0 0 7px 0 rgba(255, 255, 255, .5);
     box-shadow: 0 0 7px 0 rgba(255, 255, 255, .5);
@@ -309,6 +318,7 @@
 /* sign in view styles */
 
 .signin-view .ds-content-wrp,
+.signup-view .ds-content-wrp,
 .settings-view .ds-content-wrp {
     background: transparent url("images/background-city.png") no-repeat 50% -2.5em;
     background-size: 125%;
@@ -333,6 +343,21 @@
 /* sign up view styles */
 .signup-view {
     position: relative;
+}
+
+.signup-view > .km-content {
+    margin-top: -4em;
+}
+
+.signup-view .ds-content-wrp {
+    position: relative;
+}
+
+.signup-view .ds-form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1em;
 }
 
 /* settings view styles */
