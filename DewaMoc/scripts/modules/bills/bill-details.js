@@ -36,6 +36,7 @@
 	BillDetailsService = kendo.Class.extend({
         viewModel: null,
         months_en: ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        paidBillHistories: [],
         
         expandExp: {
             "History": {
@@ -121,9 +122,12 @@
             for(var i = 0, l = history.length; i < l; i++) {
                 if(!history[i].Paid) {
                     period += new Date(history[i].StartDate).format("mmm dd, yyyy") + " to " + new Date(history[i].EndDate).format("mmm dd, yyyy") + " | \n";
+                    this.paidBillHistories.push(history[i].Id);
                 }
             }
-            
+            if (period==0) {
+                this.viewModel.set("showPay", false);
+            }
             return period;
         },
         
@@ -211,8 +215,15 @@
         },
         
         paymentCompleted: function(itemId) {
+            var that = this;
             app.common.notification("Payment completed", "Payment Completed");
-           
+           	itemId[0].then(function(data) {
+                if(data.state === "approved") {
+                    for (var i=0;i<that.paidBillHistories.length;i++) {
+                        app.everlive.data("BillHistory").updateSingle({Id:that.paidBillHistories[i], "Paid": true});
+                    }
+                }
+            });
         	//todo hide pay button etc...
         },
         

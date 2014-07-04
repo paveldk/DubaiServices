@@ -37,9 +37,7 @@
             return $.when(promisesArray);
         },
         
-        paySingle: function(payment) {
-            console.log('Payment: ' + JSON.stringify(payment));
-            
+        paySingle: function(payment) {            
             var transaction = {
             	'amount':{
             		'total': payment.cost,
