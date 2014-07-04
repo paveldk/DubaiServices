@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var util = {
     isNull: function(arg) {
@@ -495,4 +495,5 @@ var paypal_sdk = function () {
             }
         }
     };
+
 };

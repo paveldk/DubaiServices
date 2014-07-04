@@ -2,11 +2,12 @@
 	var PaymentService,
         SettingsController,
         SettingsViewModel,
-        app = global.app = global.app || {};
+        app = global.app = global.app || {},
+        pp;
 
 	PaymentService = kendo.Class.extend({
 		init: function () {
-			this.pp = new paypal_sdk();
+			pp = new paypal_sdk();
             
             pp.configure({
                 'mode': 'sandbox',
@@ -21,14 +22,15 @@
         	//do magic 
         	//return promise with itemUid;
             
-            if(!Array.isArray(payments)) {
+            if(!payments.hasOwnProperty('lenght')) {
                 payments = [payments];
             }
             
 			var promisesArray = [];
+            var that = this;
             
             payments.forEach(function(payment){
-                promisesArray.push(this.paySingle(payment));
+                promisesArray.push(that.paySingle(payment));
             })
             
             return $.when(promisesArray);
