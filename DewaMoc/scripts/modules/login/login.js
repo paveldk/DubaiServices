@@ -5,11 +5,31 @@
         app = global.app = global.app || {};
     
     LoginBase = kendo.data.ObservableObject.extend({
+        isEn: true,
+        $view: null,
+        
         consts: {
             PROVIDER_DEFAULT: "default",
             PROVIDER_FACEBOOK: "facebook",
             PROVIDER_GOOGLE: "google",
             PROVIDER_LIVE_ID: "liveid",
+        },
+        
+        init: function() {
+        	var that = this;
+            
+            that.initData = $.proxy(that._initData, that);
+            
+            kendo.data.ObservableObject.fn.init.apply(that, arguments);
+        },
+        
+        _initData: function() {
+          var that = this,
+              language = app.settingsService.getLanguage();            
+            
+            that.$view = $(that.viewId);
+            that.$view.removeClass("en ar").addClass(language);
+            that.set("isEn", language === "en");
         },
         
         checkEnter: function (e) {
@@ -37,9 +57,9 @@
     
     SignInViewModel = LoginBase.extend({
         isLoggedIn: false,
-        username: "s",
-        password: "s",
         displayName: "",
+        viewId: "#signin-view",
+        
         consts: {
             MESSAGE_TITLE_SIGN_IN_ERROR: "Sign In Error",
             MESSAGE_EMPTY_FIELD: "Both fields are required"
@@ -175,6 +195,7 @@
     });
     
     SignUpViewModel = LoginBase.extend({
+        viewId: "#signup-view",
         fullname: "",
         username: "",
         email: "",
@@ -202,8 +223,8 @@
                 that.checkPasword(password, repassword)) {
                 that._onStart();
                 app.everlive.Users.register(username, password, { Email: email, DisplayName: fullname })
-                .then($.proxy(that._onSuccess, that, that.consts.PROVIDER_DEFAULT))
-                .then(null, $.proxy(that._onError, that, that.consts.PROVIDER_DEFAULT));
+                    .then($.proxy(that._onSuccess, that, that.consts.PROVIDER_DEFAULT))
+                    .then(null, $.proxy(that._onError, that, that.consts.PROVIDER_DEFAULT));
             }
         },
         

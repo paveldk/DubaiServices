@@ -13,43 +13,49 @@
 		</div>
 	</div>
     
-	<div class="bill-details-items" data-template="bill-details-template" data-bind="source: this"></div>
+	<div class="bill-details-items">
+        <span class="ds-icon ds-icon-#: icon #">
+            <i class="fa #: icon #"></i>
+        </span>
+        
+        <span class="ds-item-wrp ds-item-right ds-item-has-icon">
+            <span class="ds-title" data-bind="visible: isEn">Consumption</span>
+            <span class="ds-title" data-bind="invisible: isEn">استهلاك</span>
+            <span class="ds-value" data-bind="text: consumption"></span>
+        </span>
+        
+        <span class="ds-item-wrp">
+            <span class="ds-title" data-bind="visible: isEn">Account</span>
+            <span class="ds-title" data-bind="invisible: isEn">حساب</span>
+            <span class="ds-value" data-bind="text: account">#: account #</span>
+        </span>
+        
+        <span class="ds-item-wrp">
+            <span class="ds-title" data-bind="visible: isEn">Period</span>
+            <span class="ds-title" data-bind="invisible: isEn">فترة</span>
+            <span class="ds-value" data-bind="text: date">#: date #</span>
+        </span>
+        
+        <span class="ds-item-wrp">
+            <span class="ds-title" data-bind="visible: isEn">Usage</span>
+            <span class="ds-title" data-bind="invisible: isEn">استعمال</span>
+        </span>
+    </div>
 
     <div id="chart" class="ds-chart"></div>
     
     <div data-role="footer">
         <div class="ds-navbar" data-role="navbar">
             <a class="ds-button ds-button-large ds-button-pay" data-role="button" data-bind="click: onPayBillClick">
-                <span class="ds-title">Pay</span>
+                <span class="ds-title" data-bind="visible: isEn">Pay</span>
+                <span class="ds-title" data-bind="invisible: isEn">دفع</span>
 				<span class="ds-cost" data-bind="text: cost"></span>
             </a>
 		</div>
 	</div>
     
     <script id="bill-details-template" type="text/x-kendo-template">
-        <span class="ds-icon ds-icon-#: icon #">
-			<i class="fa #: icon #"></i>
-    	</span>
-        
-        <span class="ds-item-wrp ds-item-right ds-item-has-icon">
-            <span class="ds-title">Consumption</span>
-            <span class="ds-value">#: consumption #</span>
-        </span>
-        
-        <span class="ds-item-wrp">
-            <span class="ds-title">Account</span>
-            <span class="ds-value">#: account #</span>
-        </span>
-        
-        <span class="ds-item-wrp">
-            <span class="ds-title">Period</span>
-            <!-- <span class="ds-value">#: period #</span> -->
-            <span class="ds-value">June 16,2014 to July 17,2014</span>
-        </span>
-        
-        <span class="ds-item-wrp">
-            <span class="ds-title">Usage</span>
-        </span>
+
 
 	</script>
 </div>

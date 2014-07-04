@@ -17,10 +17,28 @@
         kendo.mobile.application.navigate(view);
     }
     
+    function convertDigitIn(enDigit){
+        var newValue="";
+        
+        for (var i=0;i<enDigit.length;i++)
+        {
+            var ch=enDigit.charCodeAt(i);
+            if (ch>=48 && ch<=57)
+            {
+                var newChar=ch+1584;
+                newValue=newValue+String.fromCharCode(newChar);
+            }
+            else
+                newValue=newValue+String.fromCharCode(ch);
+        }
+        return newValue;
+    }
+    
     app.common = {
         notification: notification,
         showLoading: showLoading,
         hideLoading: hideLoading,
-        navigateToView: navigateToView
+        navigateToView: navigateToView,
+        convertToArabic: convertDigitIn
     };
 })(window);
