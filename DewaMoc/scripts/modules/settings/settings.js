@@ -27,7 +27,7 @@
 		viewModel: null,
         logged: false,
         consts: {
-            localStorageKey: "dubaiServicesLanguage",
+            localStorageKeyLang: "dubaiServicesLanguage",
             localStorageKeyUsername: "dubaiServicesUsername",
             localStorageKeyPassword: "dubaiServicesPassword",
             localStorageKeyId: "dubaiServicesId"

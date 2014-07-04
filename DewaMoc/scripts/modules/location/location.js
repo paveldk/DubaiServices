@@ -13,9 +13,7 @@
     
     LocationViewModel = kendo.data.ObservableObject.extend({
         viewId: "#location-view",
-        header_en: "Customer Centers",
-        header_ar: "مراكز العملاء",
-        header: "",
+        isEn: true,
         $view: null,
         
 		init: function () {
@@ -50,7 +48,7 @@
             
             that.viewModel.$view = $(that.viewModel.viewId);
             that.viewModel.$view.removeClass("en ar").addClass(language);
-            that.viewModel.set("header", that["header_" + language]);
+            that.viewModel.set("isEn", language === "en");
             
             q.select("Location", "Type", "Id");
         
@@ -77,24 +75,6 @@
                 that.long = 55.273060;
                 resolve(); 
             });            
-        },
-        
-        getMarkerClass: function (ozonePercent) {
-            var that = this;
-            
-            if(ozonePercent > 75){
-                return that.class6;
-            } else if(ozonePercent > 50 && ozonePercent <= 75 ) {
-                return that.class5;
-            } else if(ozonePercent > 25 && ozonePercent <= 50 ) {
-                return that.class4;
-            } else if(ozonePercent > 6 && ozonePercent <= 25 ) {
-                return that.class3;
-            } else if(ozonePercent > 0 && ozonePercent <= 6 ) {
-                return that.class2;
-            } else {
-                return that.class1;
-            }            
         },
 
 		updateMarkers: function () {
