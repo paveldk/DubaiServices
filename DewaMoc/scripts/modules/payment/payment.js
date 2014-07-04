@@ -14,6 +14,10 @@
             //todo some operations
         	//do magic 
         	//return promise with itemUid;
+        },
+        
+        paySingle: function(payment) {
+            
         }
 	});
     
