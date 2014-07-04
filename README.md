@@ -32,13 +32,13 @@ AppBuilder companion app is a test utility for iOS, Android, and Windows Phone 8
 
 Scan the following QR code on the device, open the URL, and install the app from App Store.
 
-![Download AppBuilder companion app from the App Store QR code](http://full/path/to/img.jpg "Optional title")
+![Download AppBuilder companion app from the App Store QR code](/../docs-images/docs-resources/download-appbuilder-companion-app-ios.png "Download AppBuilder companion app iOS")
 
 * Download and install the AppBuilder companion app for Android
 
 Scan the following QR code on the device, open the URL, and install the app from Google Play.
 
-
+![Download AppBuilder companion app from the App Store QR code](/../docs-images/docs-resources/download-appbuilder-companion-app-android.png "Download AppBuilder companion app Android")
 
 Step 3: Install the sample app.
 
