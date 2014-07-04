@@ -33,7 +33,7 @@
 	SettingsService = kendo.Class.extend({
 		viewModel: null,
         consts: {
-            localStorageKeyLang: "dubaiServicesLanguage"
+            localStorageKey: "dubaiServicesLanguage"
         },
         
 		init: function () {
@@ -48,7 +48,7 @@
         _bindToEvents: function() {
             var that = this;
             
-			that.viewModel.bind(that.viewModel.events.languageUpdate, $.proxy(that.setLanguage, that));
+			that.viewModel.on(that.viewModel.events.languageUpdate, $.proxy(that.setLanguage, that));
         },    
 
 		initData: function () {
