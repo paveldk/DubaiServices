@@ -4,25 +4,33 @@
         app = global.app = global.app || {};
 
 	BillDetailsViewModel = kendo.data.ObservableObject.extend({
+        id: "",
         title: "",
         icon: "",
         consumption: "",
         account: "",
         period: "",
-        periodChartDS: "",
-        totalCost: "",
+        cost: "",
+        
+        events: {
+            payBill: "payBill"
+        },
         
 		init: function () {
 			var that = this;
-
-            that.periodChartDS = new kendo.data.DataSource();
             
 			kendo.data.ObservableObject.fn.init.apply(that, arguments);
+        },
+        
+        onPayBillClick: function() {
+            var that = this;
+            
+            that.trigger(that.events.payBill, {});
         }
 	});
 
 	BillDetailsService = kendo.Class.extend({
-		viewModel: null,
+        viewModel: null,
         months_en: ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         
         expandExp: {
@@ -38,9 +46,16 @@
 			var that = this;
 
 			that.viewModel = new BillDetailsViewModel();
+            that._bindToEvents();
             
 			that.showData = $.proxy(that.initData, that);
 		},
+        
+        _bindToEvents: function() {
+			var that = this;
+            
+            that.viewModel.bind(that.viewModel.events.payBill, $.proxy(that.onPayBill, that));
+        },
 
 		initData: function (e) {
 			var that = this,
@@ -49,6 +64,8 @@
 			if (!dataId) {
 				return;
 			}
+            
+            that.viewModel.set("id", dataId);
 
 			app.common.showLoading();
 
@@ -66,7 +83,7 @@
             that.viewModel.set("icon", billData.Type.Icon);
 			that.viewModel.set("consumption", that.calculateTotalConsumption(billData.History));
             that.viewModel.set("account", billData.Account);
-            that.viewModel.set("totalCost", that.calculateTotalCost(billData.History));
+            that.viewModel.set("cost", that.calculateTotalCost(billData.History));
             that.viewModel.set("period", that.calculatePeriod(billData.History));
             
            	that.buildPeriodChartDS(billData.History);
@@ -119,8 +136,11 @@
                 ds.push({value: parseInt(history[i].Consumption, 10), date: that.months_en[history[i].EndDate.getMonth()] });
             }
             
-            that.viewModel.get("periodChartDS").data(ds);
-            
+            that.createChart(ds);
+        },
+        
+        createChart: function(ds) {
+            // todo move to MVVM
             $chart = $("#chart").empty();
             
             $chart.kendoChart({
@@ -147,6 +167,19 @@
             });
         },
         
+        onPayBill: function() {
+            var that = this;
+            
+            //todo - create and pass DTO instead of viewModel
+            app.paymentService.pay(that.viewModel)
+            	.then($.proxy(that.paymentCompleted, that));
+        },
+        
+        paymentCompleted: function(itemId) {
+            app.common.notification("Payment completed", "Payment Completed");
+        	//todo hide pay button etc...
+        },
+        
         getMonth: function() {
             
         },
@@ -154,7 +187,7 @@
 		onError: function (e) {
 			app.common.hideLoading();
 			app.common.notification("Error", e.message);
-		}
+		},
 	});
 
 	app.billDetailsService = new BillDetailsService();

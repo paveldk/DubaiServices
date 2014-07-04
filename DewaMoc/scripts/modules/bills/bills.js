@@ -21,7 +21,7 @@
             that.title = item.Title;
             
             if(item.History.length > 0) {
-                that.date = item.History[item.History.length - 1].EndDate
+                that.date = item.History[item.History.length - 1].EndDate;
             }
             
             that.setCost(item.History);
@@ -43,6 +43,10 @@
 	BillsViewModel = kendo.data.ObservableObject.extend({
 		billsDataSource: null,
         totalCost: 0,
+        
+        events: {
+            payAll: "payAll"
+        },
 
 		init: function () {
 			var that = this;
@@ -50,7 +54,13 @@
             that.billsDataSource = new kendo.data.DataSource({ pageSize: 10 });
             
 			kendo.data.ObservableObject.fn.init.apply(that, that);
-		}
+		},
+        
+        onPayAllClick: function() {
+            var that = this;
+            
+            that.trigger(that.events.payAll, { billsToPay: that.get("billsDataSource").data() });
+        }
 	});
 
 
@@ -66,9 +76,16 @@
 			var that = this;
 
 			that.viewModel = new BillsViewModel();
+            that._bindToEvents();
             
 			that.initModule = $.proxy(that.initData, that);
 		},
+        
+        _bindToEvents: function() {
+          	var that = this;
+            
+            that.viewModel.bind(that.viewModel.events.payAll, $.proxy(that.onPayAll, that));
+        },
 
 		initData: function () {
 			var that = this;
@@ -98,6 +115,17 @@
             
             that.viewModel.get("billsDataSource").data(ds);
             app.common.hideLoading();
+        },
+        
+        onPayAll: function(data) {
+            var that = this;
+            
+            app.paymentService.pay(data.billsToPay)
+            	.then($.proxy(that.paymentCompleted, that));
+        },
+        
+        paymentCompleted: function() {
+            
         }
 	});
     
