@@ -46,7 +46,7 @@
     
     <div data-role="footer">
         <div class="ds-navbar" data-role="navbar">
-            <a class="ds-button ds-button-large ds-button-pay" data-role="button" data-bind="click: onPayBillClick">
+            <a class="ds-button ds-button-large ds-button-pay" data-role="button" data-bind="click: onPayBillClick, visible: showPay">
                 <span class="ds-title" data-bind="visible: isEn">Pay</span>
                 <span class="ds-title" data-bind="invisible: isEn">دفع</span>
 				<span class="ds-cost" data-bind="text: cost"></span>

@@ -13,6 +13,7 @@
         account: "",
         date: "",
         cost: "",
+        showPay: true,
         viewId: "#bill-details-view",
         
         events: {
@@ -211,6 +212,7 @@
         
         paymentCompleted: function(itemId) {
             app.common.notification("Payment completed", "Payment Completed");
+           
         	//todo hide pay button etc...
         },
         
