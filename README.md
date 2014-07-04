@@ -2,7 +2,7 @@
 
 ## Application Overview ##
 
-The Dubai Services app demonstrates a real-world application implementation that integrates the Telerik Platform modules and the PayPal API. 
+The Dubai Services app demonstrates a real-world application implementation that integrates the [Telerik Platform](http://www.telerik.com/platform) AppBuilder and Backend Services modules. 
 
 This app lets you create an account to monitor and keep up with household bills. You can pay your bills directly through the app using a valid PayPal account or locate a customer service center of the service providers. The data is stored in the cloud and is available from any Internet-connected device.
 
@@ -42,7 +42,9 @@ Scan the following QR code on the device, open the URL, and install the app from
 
 Step 3: Load/Run the sample app.
 
-Scan the following QR code on the device, the AppBuilder companion app will open and run the sample app.
+* On your iOS device, tap and swipe with two fingers to toggle the built-in menu. Use the built-in QR code scanner to scan the following QR code.
+
+* On your Android device, use a QR code scanner to scan the following QR code. Share the decoded URL to the AppBuilder companion app. 
 
 
 ### Run From the Telerik Platform Portal ###
@@ -62,13 +64,34 @@ Step 5: Select one of the options from the drop-down menu:
 	
 ### Implementation Details ###
 
-// TODO - how to set up your project in the Telerik Platform
-
 #### Backend ####
 
-// TODO - Everlive JS SDK, etc. relations, items
+The backend of the app uses the following features and SDKs of Telerik Backend Services:
 
-#### UI ####
+* **User management** - using the Backend Services built-in user management and authentication.
+* **Data store** - storing the data in content types "Bill", "BillHistory", "BillTypes", "CustomerCenter", "Notifications", "Users".
+* **Cloud Code** - registering server logic in the Cloud Code for the **Users** content types.
+* **Type-level permissions** - setting up the permissions over the content type to suit the business and security strategy of the app.
+* **Expanding relation fields** - a feature that allows you to obtain the related items of a parent item.
+* **JavaScript SDK** - used as an abstraction over the REST API, ready for use in hybrid and web apps.
 
-// TODO - Kendo, widgets, Kendo mobile app
+#### Client app ####
+
+The client app is built with the AppBuilder In-Browser client with HTML5, CSS and JavaScript. The architecture of the app follows the MVVM pattern and uses the MVVM framework provided by Kendo UI.
+
+The entry point of the app is located in `app.js`. When the PhoneGap `deviceready` event is fired we initialize the `kendo.mobile.Application`, the starting point of the Kendo UI mobile, and the `Everlive` global instance, which is the starting point of the Backend Services SDK:
+    
+	document.addEventListener("deviceready", function () {
+        navigator.splashscreen.hide();
+        
+        new kendo.mobile.Application(document.body, { statusBarStyle: "black-translucent", skin: "ios7" });     
+        
+        app.everlive = new Everlive({
+            apiKey: app.config.everlive.apiKey,
+            scheme: app.config.everlive.scheme
+        });
+    }, false); 
+
+
+
 
