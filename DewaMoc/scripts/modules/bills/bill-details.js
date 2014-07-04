@@ -6,7 +6,8 @@
 	BillDetailsViewModel = kendo.data.ObservableObject.extend({
         id: "",
         title: "",
-        icon: "",
+        parentClass: "",
+        innerClass: "",
         color: "",
         consumption: "",
         account: "",
@@ -88,7 +89,8 @@
                 periodChartDS = new kendo.data.DataSource();
 
             that.viewModel.set("title", billData.Title);
-            that.viewModel.set("icon", billData.Type.Icon);
+            that.viewModel.set("parentClass",  "ds-icon ds-icon-" + billData.Type.Icon);
+            that.viewModel.set("innerClass", "fa " + billData.Type.Icon);
             that.viewModel.set("color", billData.Type.Color);
 			that.viewModel.set("consumption", that.calculateTotalConsumption(billData.History));
             that.viewModel.set("account", billData.Account);

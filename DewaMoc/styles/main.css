@@ -363,7 +363,7 @@
 }
 
 .signin-view .ds-form {
-    margin-top: 13em;
+    margin-top: 14em;
 }
 
 @media all and (max-height: 480px) {
@@ -383,14 +383,14 @@
 }
 
 .signup-view .ds-content-wrp {
-    position: relative;
+    padding-top: 15em;
 }
 
-.signup-view .ds-form {
-    position: absolute;
-    right: 0;
-    bottom: 1em;
-    left: 0;
+@media all and (max-height: 480px) {
+    
+    .signup-view .ds-content-wrp {
+        padding-top: 12em;
+    }
 }
 
 /* settings view styles */
@@ -427,9 +427,9 @@
 
 .dashboard-view .dashboard-items > li {
     float: left;
-    margin: .35% .25%;
+    margin: .35% .35%;
     padding: 0;
-    width: 49.5%;
+    width: 49.25%;
     color: #fff;
     list-style-type: none;
 }
@@ -528,7 +528,7 @@
 
 /* bills view styles */
 .bills-view .bills-items > li {
-    margin-bottom: .05em;
+    margin-bottom: .1em;
     padding: 0;
     border-width: 0;
     border-image: none;
@@ -564,25 +564,20 @@
 .bills-view .bills-items > li > a.km-listview-link:before {
     position: absolute;
     top: 50%;
-    right: 1.25em;
+    right: .5em;
     display: block;
     margin-top: -.625em;
     width: 1.25em;
     height: 1.25em;
-    -webkit-border-radius: .625em;
-    border-radius: .625em;
-    background-color: rgba(255, 255, 255, .3);
-    color: #293040;
-    content: "i";
-    text-align: center;
-    font-weight: bold;
-    font-size: .7em;
     line-height: 1.25em;
+    content: "\f06a";
+    font-family: FontAwesome;
+    color: rgba(255, 255, 255, .3) !important;
 }
 
 .bills-view.ar .bills-items > li > a.km-listview-link:before {
     right: auto;
-    left: 1.25em;
+    left: .75em;
 }
 
 .bills-view .ds-icon,

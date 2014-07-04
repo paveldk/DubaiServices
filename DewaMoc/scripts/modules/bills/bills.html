@@ -3,7 +3,8 @@
      data-role="view"
 	 data-init="app.billsService.initModule"
 	 data-model="app.billsService.viewModel"
-     data-layout="drawer-layout">
+     data-layout="drawer-layout"
+     data-transition="overlay:left">
     
 	<div data-role="header">
         <div data-role="navbar">
@@ -37,7 +38,8 @@
         	</span>
         	<span class="ds-item-content-wrp">
                 <span class="ds-title">#: title #</span>
-        		<span class="ds-date ds-small">#: date #</span>
+        		<!-- <span class="ds-date ds-small">#: date #</span> -->
+        		<span class="ds-date ds-small">July 20, 2014</span>
             </span>
             <span class="ds-cost">#: cost #</span>
     	</a>

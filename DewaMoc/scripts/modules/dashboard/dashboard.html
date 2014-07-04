@@ -2,14 +2,14 @@
 	 class="view dashboard-view"
      data-role="view"
      data-layout="default"
+     data-transition="overlay:left"
      data-init="app.dashBoardService.showModule"
      data-show="app.dashBoardService.show"
      data-model="app.dashBoardService.viewModel">
     
     <div data-role="header">
         <div data-role="navbar">
-            <h1 data-bind="visible: isEn">Dashboard</h1>
-            <h1 data-bind="invisible: isEn">لوحة القيادة</h1>
+            <h1>Dashboard</h1>
         </div>
     </div>
     
@@ -18,8 +18,7 @@
             <a data-role="button" href="scripts/modules/bills/bills.html">
                 <span class="ds-item">
                     <span class="ds-icon ds-icon-bills"></span>
-                    <span class="ds-title" data-bind="visible: isEn">Bills</span>
-                    <span class="ds-title" data-bind="invisible: isEn">فواتير</span>
+                    <span class="ds-title">Bills</span>
                 </span>
             </a>
         </li>
@@ -29,8 +28,7 @@
                     <span class="ds-icon ds-icon-notifications">
                         <span class="ds-badge"><span>12</span></span>
                     </span>
-                    <span class="ds-title" data-bind="visible: isEn">Notifications</span>
-                    <span class="ds-title" data-bind="invisible: isEn">الإخطارات</span>
+                    <span class="ds-title">Notifications</span>
                 </span>
             </a>
         </li>
@@ -38,8 +36,7 @@
             <a data-role="button" href="scripts/modules/location/location.html">
                 <span class="ds-item">
                     <span class="ds-icon ds-icon-centers"></span>
-                    <span class="ds-title" data-bind="visible: isEn">Customer Centers</span>
-                    <span class="ds-title" data-bind="invisible: isEn">مراكز العملاء</span>
+                    <span class="ds-title">Customer Centers</span>
                 </span>
             </a>
         </li>
@@ -47,8 +44,7 @@
             <a data-role="button" href="scripts/modules/settings/settings.html">
                 <span class="ds-item">
                     <span class="ds-icon ds-icon-settings"></span>
-                    <span class="ds-title" data-bind="visible: isEn">Settings</span>
-                    <span class="ds-title" data-bind="invisible: isEn">ضبط</span>
+                    <span class="ds-title">Settings</span>
                 </span>
             </a>
         </li>

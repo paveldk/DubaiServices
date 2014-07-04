@@ -4,7 +4,7 @@
         <title>Dubai Services</title>
         <meta charset="utf-8" />
         
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="lib/leaflet-0.7.2/leaflet.css" rel="stylesheet"/>
         <link href="lib/leaflet-markercluster/MarkerCluster.css" rel="stylesheet" type="text/css" />
         <link href="lib/leaflet-markercluster/MarkerCluster.Default.css" rel="stylesheet" type="text/css" />
@@ -106,23 +106,6 @@
 				</div>
 			</div>
         </div>
-
-        <!--Drawer-->
-        <div id="drawer" data-role="drawer" data-model="app.loginService.signInViewModel"
-             data-views='["dashboard-view"]'>
-             <header data-role="header">
-                <div data-role="navbar">
-                    <div data-bind="text: displayName"></div>
-                </div>
-             </header>
-             <ul data-role="listview">
-                <li><a href="scripts/modules/dashboard/dashboard.html">Dashboard</a></li>
-                <li><a href="scripts/modules/payment/payment.html">Payment</a></li>
-                <li><a href="scripts/modules/locations/locations.html">Map</a></li>
-                
-                <li><a href="scripts/modules/profile/profile.html">Profile</a></li>
-                <li><a data-bind="click: logout">Sign Out</a></li>
-            </ul>
-        </div>
+        
     </body>
 </html>
