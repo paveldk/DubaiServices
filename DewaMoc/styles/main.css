@@ -133,8 +133,22 @@
     left: 0;
 }
 
+.km-ios7 .ar .km-navbar .km-leftitem {
+    right: 0;
+    left: auto;
+}
+
 .km-ios7 .km-navbar .km-rightitem {
     right: 0;
+}
+
+.km-ios7 .ar .km-navbar .km-rightitem {
+    right: auto;
+    left: 0;
+}
+
+.km-ios7 .ar .km-navbar .km-button.ds-header-back .fa-chevron-left:before {
+    content: "\f054";
 }
 
 .km-ios7 .km-navbar .km-button.ds-header-button {
@@ -223,8 +237,16 @@
     float: left;
 }
 
+.km-ios7 .km-view.ar .km-footer .km-button.ds-button .ds-title {
+    float: right;
+}
+
 .km-ios7 .km-view .km-footer .km-button.ds-button .ds-cost {
     float: right;
+}
+
+.km-ios7 .km-view.ar .km-footer .km-button.ds-button .ds-cost {
+    float: left;
 }
 
 .km-ios7 .km-view .km-content input.ds-input {
@@ -253,6 +275,12 @@
     padding-left: 2.5em;
 }
 
+.km-ios7 .km-view.ar .km-content .ds-icon input.ds-input {
+    padding-right: 2.5em;
+    padding-left: .8em;
+    text-align: right;
+}
+
 .ds-icon:before {
     position: absolute;
     top: 50%;
@@ -266,6 +294,11 @@
     font-size: 2em;
     font-family: FontAwesome;
     opacity: .8;
+}
+
+.ar .ds-icon:before {
+    right: .35em;
+    left: auto;
 }
 
 .ds-icon.ds-username:before {
@@ -355,9 +388,9 @@
 
 .signup-view .ds-form {
     position: absolute;
-    left: 0;
     right: 0;
     bottom: 1em;
+    left: 0;
 }
 
 /* settings view styles */
@@ -399,6 +432,10 @@
     width: 49.5%;
     color: #fff;
     list-style-type: none;
+}
+
+.dashboard-view.ar .dashboard-items > li {
+    float: right;
 }
 
 .dashboard-view .dashboard-items > li > a {
@@ -507,10 +544,19 @@
     overflow: hidden;
     margin: 0;
     padding: .8em 2.5em .8em 1.25em;
+    background-color: rgba(0, 0, 0, .3);
     -webkit-background-clip: border-box;
     background-clip: border-box;
+}
+
+.bills-view .bills-items > li.km-state-active > a.km-listview-link {
     background-color: rgba(0, 0, 0, .3);
 }
+
+.bills-view.ar .bills-items > li > a.km-listview-link {
+    padding: .8em 1.25em .8em 2.5em;
+}
+
 .bills-view .bills-items > li > a.km-listview-link.paid {
     background-color: rgba(0, 0, 0, .5);
 }
@@ -534,8 +580,9 @@
     line-height: 1.25em;
 }
 
-.bills-view .bills-items > li.km-state-active > a.km-listview-link {
-    background: none;
+.bills-view.ar .bills-items > li > a.km-listview-link:before {
+    right: auto;
+    left: 1.25em;
 }
 
 .bills-view .ds-icon,
@@ -551,6 +598,10 @@
     text-align: center;
 }
 
+.bills-view.ar .ds-icon {
+    float: right;
+}
+
 .bills-view .ds-icon .fa,
 .bill-details-view .ds-icon .fa {
     margin-top: .35em;
@@ -559,10 +610,15 @@
 
 .bill-details-view .ds-icon {
     display: none;
+    float: left;
     width: 4em;
     height: 4em;
     -webkit-border-radius: 2em;
     border-radius: 2em;
+}
+
+.bill-details-view.ar .ds-icon {
+    float: right;
 }
 
 .bill-details-view .ds-icon .fa {
@@ -622,10 +678,21 @@
     width: 50%;
 }
 
+.ar .ds-item-content-wrp {
+    float: right;
+    margin-right: .75em;
+    margin-left: 0;
+}
+
 .ds-item-content-wrp .ds-title,
 .ds-item-content-wrp .ds-date {
     display: block;
     font-size: .85em;
+}
+
+.ar .ds-item-content-wrp .ds-title,
+.ar .ds-item-content-wrp .ds-date {
+    text-align: right;
 }
 
 .ds-small,
@@ -644,6 +711,10 @@
     line-height: 2em;
 }
 
+.ar .bills-items .ds-cost {
+    float: left;
+}
+
 .km-ios7 .km-view a.leaflet-control-zoom-in,
 .km-ios7 .km-view a.leaflet-control-zoom-out {
     color: #000;
@@ -652,6 +723,11 @@
 
 .bill-details-items {
     margin-left: 1.25em;
+}
+
+.ar .bill-details-items {
+    margin-right: 1.25em;
+    margin-left: 0;
 }
 
 .bill-details-items .ds-item-wrp,
@@ -663,6 +739,10 @@
 .bill-details-items .ds-item-wrp {
     position: relative;
     margin-bottom: 1.5em;
+}
+
+.ar .bill-details-items .ds-item-wrp span {
+    text-align: right;
 }
 
 .bill-details-items .ds-item-wrp:before {
@@ -681,9 +761,23 @@
     text-align: right;
 }
 
+.ar .bill-details-items .ds-item-wrp.ds-item-right {
+    margin-right: 0;
+    margin-left: .75em;
+    text-align: left;
+}
+.ar .bill-details-items .ds-item-wrp.ds-item-right span {
+    text-align: left;
+}
+
 .bill-details-items .ds-item-wrp.ds-item-has-icon {
     margin-top: .5em;
     margin-left: 5em;
+}
+
+.ar .bill-details-items .ds-item-wrp.ds-item-has-icon {
+    margin-right: 5em;
+    margin-left: .75em;
 }
 
 .bill-details-items .ds-title {
