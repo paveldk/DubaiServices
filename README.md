@@ -49,7 +49,7 @@ Step 3: Load/Run the sample app.
 
 ### Run From the Telerik Platform Portal ###
 
-Step 1: Log in your provided Telerik Platform account.
+Step 1: Log in your Telerik Platform account.
 
 Step 2: Open the workspace.
 
