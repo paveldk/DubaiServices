@@ -22,7 +22,7 @@
         	//do magic 
         	//return promise with itemUid;
             
-            if(!payments.hasOwnProperty('lenght')) {
+            if(!payments.hasOwnProperty('length')) {
                 payments = [payments];
             }
             
@@ -31,42 +31,56 @@
             
             payments.forEach(function(payment){
                 promisesArray.push(that.paySingle(payment));
+                console.log(promisesArray.length + ' of ' + payments.length + ' payments completed');
             })
             
             return $.when(promisesArray);
         },
         
         paySingle: function(payment) {
+            console.log('Payment: ' + JSON.stringify(payment));
+            
+            var transaction = {
+            	'amount':{
+            		'total': payment.cost,
+            		'currency': 'USD'
+            		//AED stand for United Arab Emirates dirham, but I couldn't find such code on PayPal site
+            	},
+            	'description': payment.account + '/' + payment.title + '/' + payment.consumption + '/' + payment.date
+            };
+            
             var prom = $.Deferred();
             
             var create_payment_json = {
-                "intent": "sale",
-                "payer": {
-                    "payment_method": "credit_card",
-                    "funding_instruments": [
+                'intent': 'sale',
+                'payer': {
+                    'payment_method': 'credit_card',
+                    'funding_instruments': [
                         {
-                            "credit_card": {
-                                "number": "5500005555555559",
-                                "type": "mastercard",
-                                "expire_month": 12,
-                                "expire_year": 2018,
-                                "cvv2": 111,
-                                "first_name": "Betsy",
-                                "last_name": "Buyer"
+                            'credit_card': {
+                                'number': '5500005555555559',
+                                'type': 'mastercard',
+                                'expire_month': 12,
+                                'expire_year': 2018,
+                                'cvv2': 111,
+                                'first_name': 'Betsy',
+                                'last_name': 'Buyer'
                             }
                         }
                     ]
                 },
-                "transactions": [payment]
+                'transactions': [transaction]
             };
-            
-             pp.payment.create(JSON.stringify(create_payment_json), function (err, res) {
+			
+            pp.payment.create(JSON.stringify(create_payment_json), function (err, res) {
                 if (err) {
-                    prom.reject(err.responseText);
+                	prom.reject(err.responseText);
+                	console.log(err);
                 }
-        
+
                 if (res) {
-                    prom.resolve(res)
+                	prom.resolve(res);
+                    console.log(res);
                 }
             });
             

@@ -260,15 +260,15 @@ var paypal_sdk = function () {
             headers: http_options.headers,
             data: data,
             error: function(e){
-                console.log('problem with request: ' + e.statusText);
+                //console.log('problem with request: ' + e.statusText);
             	cb(e, null);
             },
             success: function(data, status){
-                console.log('success');
+                //console.log('success');
                 cb(null, data);
             }
         };
-        console.dir(ajaxSettings);
+        //console.log(ajaxSettings);
         $.ajax(ajaxSettings);
     }
 
