@@ -14,7 +14,8 @@
             signIn: "scripts/modules/login/signin.html",
             signUp: "scripts/modules/login/signup.html",
             dashboard: "scripts/modules/dashboard/dashboard.html",
-            main: "scripts/modules/main/main.html"
+            main: "scripts/modules/dashboard/dashboard.html",
+            settings: "scripts/modules/settings/settings.html"
         }
     };
 })(window);

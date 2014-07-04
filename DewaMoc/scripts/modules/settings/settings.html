@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <div id="settings-view"
-     data-role="view settings-view"
+     class="view settings-view"
+     data-role="view"
      data-layout="default"
      data-stretch="true"
+     data-init="app.settingsService.initModule"
      data-model="app.settingsService.viewModel">
     
     <div class="ds-content-wrp">
         <h1>Dubai Services</h1>
         <ul class="ds-langs">
-            <li><a class="ds-button ds-button-large ds-button-center" data-role="button" href="#">English</a></li>
-    		<li><a class="ds-button ds-button-large ds-button-center" data-role="button" href="#">Arabic</a></li>
+            <li><a class="ds-button ds-button-large ds-button-center" data-role="button" href="#" data-bind="click: onLanguageSelectEN">English</a></li>
+            <li><a class="ds-button ds-button-large ds-button-center" data-role="button" href="#" data-bind="click: onLanguageSelectAR">Arabic</a></li>
         </ul>
     </div>
 </div>
