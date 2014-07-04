@@ -40,7 +40,7 @@ Scan the following QR code on the device, open the URL, and install the app from
 
 ![Download AppBuilder companion app from the App Store QR code](/../docs-images/docs-resources/download-appbuilder-companion-app-android.png "Download AppBuilder companion app Android")
 
-Step 3: Install the sample app.
+Step 3: Load/Run the sample app.
 
 Scan the following QR code on the device, the AppBuilder companion app will open and run the sample app.
 
